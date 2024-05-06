@@ -10,9 +10,9 @@ const
 	}
 module.exports =  function jsScripts(){
 	return src([config['pathFrom']])
-		.pipe(minify({
+		/*.pipe(minify({
 			compress: config['compress']
-		}))
+		}))*/
 		.pipe(dest(config['pathTo']))
 		.pipe(reload({stream:true}))
 }

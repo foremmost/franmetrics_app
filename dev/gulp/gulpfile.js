@@ -1,7 +1,7 @@
 
 const
-  { src, dest, watch, parallel, series } = require('gulp'),
-	imagemin = require('gulp-imagemin');
+  { src, dest, watch, parallel, series } = require('gulp');
+//	imagemin = require('gulp-imagemin');
 //	del = require('del');
  
 // Gulp File 2.0
@@ -34,7 +34,7 @@ function images(){
 	return src([
 		'../img/**/*.*'
 	])
-	.pipe(imagemin([
+	/*.pipe(imagemin([
 		imagemin.gifsicle({interlaced: true}),
 		imagemin.mozjpeg({quality: 75, progressive: true}),
 		imagemin.optipng({optimizationLevel: 5}),
@@ -44,7 +44,7 @@ function images(){
 				{cleanupIDs: false}
 			]
 		})
-	]))
+	]))*/
 	.pipe(dest('../../build/img'))
 }
 

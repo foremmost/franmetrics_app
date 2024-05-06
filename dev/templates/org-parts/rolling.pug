@@ -1,0 +1,8 @@
+section.block
+	.block-header.block-header-table
+		h2.block-title Rolling Average Options
+		.block-header_actions.gap-withoutflex.pagination
+			button.btn.black
+				span Save
+	.block-body
+		g-select(gtitle='Select Default Rolling Average Type' :items='[{"id":1,"value":"3 Month/Week/Period"},{"id":2,"value":"Population"}]' @select-change="testChange")

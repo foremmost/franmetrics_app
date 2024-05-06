@@ -1,0 +1,11 @@
+extends template/main
+append vars
+	-
+		page_title = 'Главная'
+block aside
+	include aside
+	include asides/aside-main
+block content
+	main.main.-full-withpad
+		include template/header
+		section.map(style="background:url('/img/map.png')")

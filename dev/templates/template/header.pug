@@ -1,2 +1,38 @@
+include ../../../../../core/mixins/mixins
 header.head
-	.section
+	.row.alic
+		.head-logo.head-actions_section
+			+img('westside.png')
+		.head-logo_actions.gap
+			a.head-btn(href='reports.html')
+				svg.head-btn_img.icon
+					use(xlink:href="/img/sprite.svg#world")
+			a.head-btn(href='org.html')
+				svg.head-btn_img.icon
+					use(xlink:href="/img/sprite.svg#editorg")
+		.head-actions
+			.head-actions_section
+				button.head-btn
+					svg.head-btn_img.icon
+						use(xlink:href="/img/sprite.svg#question")
+				button.head-btn
+					svg.head-btn_img.icon
+						use(xlink:href="/img/sprite.svg#bell")
+			.head-actions_section
+				label.head-checkbox
+					input(type="checkbox" data-change="front:changeTheme")
+					span.head-checkbox_bg
+						span.head-checkbox_body
+			.head-actions_section
+				a.head-profile(href='/profile.html')
+					.head-profile_img
+						+img('darrell.png')
+					.head-profile_info
+						h5.head-profile_name
+							| Darrell Steward
+						h6.head-profile_proff
+							| Company Owner
+			.head-actions_section
+				a(href='#').head-btn
+					svg.head-btn_img.icon
+						use(xlink:href="/img/sprite.svg#exit")

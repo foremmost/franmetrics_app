@@ -1,0 +1,8 @@
+section.block
+	.block-header.block-header-table
+		h2.block-title Default Prior Column
+		.block-header_actions.gap-withoutflex.pagination
+			button.btn.black
+				span Save
+	.block-body
+		g-select(gtitle='Select Default Prior Column' :items='[{"id":1,"value":"Quick Books"},{"id":2,"value":"Population"}]' @select-change="testChange")

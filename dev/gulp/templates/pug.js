@@ -6,7 +6,7 @@ const
 	pug = require('gulp-pug'),
 	config = {
 		pretty: true,
-		pathFrom : ['../templates/**/*.pug','!../templates/data/**/*.pug','!../templates/parts/**/*.pug'],
+		pathFrom : ['../templates/**/*.pug','!../templates/data/**/*.pug','!../templates/org-parts/**/*.pug'],
 		pathTo: '../../build'
 	};
 module.exports = function pugTpl(){

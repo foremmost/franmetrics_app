@@ -1,0 +1,47 @@
+extends template/main
+append vars
+	-
+		page_title = 'Customization info'
+block aside
+	include asides/aside-profile
+block content
+	main.main.-full-withpad.profile
+		include template/header
+		section.block.profile-block
+			.block-header.profile-row
+				h2.block-title Customization info
+				.block-header_actions.gap-withoutflex
+					a.btn-link Cancel
+					a.btn.black Save
+			.profile-row
+				h2.block-title Branding interface
+				form.credentials-form.profile-form
+					.customize-badge_row
+						.customize-badge
+							span Unit color
+							button.customize-badge_color
+						.customize-badge
+							span Active unit color
+							button.customize-badge_color
+						.customize-badge
+							span Header background
+							button.customize-badge_color
+						.customize-badge
+							span Buttons color
+							button.customize-badge_color
+						.customize-badge
+							span Logo
+							input(type='file').customize-badge_file
+							+img('westside.png').customize-badge_img
+						.customize-badge
+							span.customize-badge_bg(style="background-image: url('/img/map.png')")
+							strong.customize-badge_text Marker Icon
+							input(type='file').customize-badge_file
+							button.customize-badge_icon.customize-badge_color
+								+img('icon.png')
+					.customize-badge_row.customize-badge_bottom
+						button.btn.btn-empty
+							span Reset
+						p.customize-text
+							| Attention! The reset button will return everything to the default values.
+							| Please note that branding takes place only on a light theme, the dark theme remains standard.

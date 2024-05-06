@@ -1,0 +1,28 @@
+.aside-inner.aside#inner-aside.-open
+	.aside-header
+		.aside-row
+			.aside-logo
+			.aside-action
+				button.btn-circle.btn-close(data-click="front:closeMenu")
+					svg.icon
+						use(xlink:href="/img/sprite.svg#close")
+	.aside-section
+		h5.aside-title Nested items
+		.aside-section_body
+			ul.aside-items
+				li.aside-item.-selected
+					a(href="#")
+						svg.aside-item_img.icon
+							use(xlink:href="/img/sprite.svg#forms")
+					span.aside-item_tex
+						| Forms
+						i.aside-item_digit (2)
+			ul.aside-inner-items
+				li.aside-inner-item
+					.aside-inner-item_header
+						a.aside-item_tex(href='/forms.html')
+							| Forms
+				li.aside-inner-item
+					.aside-inner-item_header
+						a.aside-item_tex(href='/add-form.html')
+							| Edit form

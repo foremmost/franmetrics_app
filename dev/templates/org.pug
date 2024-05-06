@@ -1,0 +1,216 @@
+extends template/main
+append vars
+	-
+		page_title = 'Главная'
+block aside
+	include aside
+	include asides/aside-organization
+block content
+	main.main.-full-withpad.profile#app
+		include template/header
+		.workspace.block
+			section.block.profile-block.workspace
+				.page-block(data-block='main').-block-active
+					.block-header.profile-row
+						h2.block-title Edit organization
+						.block-header_actions.gap-withoutflex
+							a.btn-link Cancel
+							a.btn.black Save
+					section.block
+						form.profile-form.org-form.row
+							.left
+								label.inpt
+									span.inpt-title Name
+									input(type='text')
+								label.textarea
+									span.textarea-title Description
+									textarea
+								g-select(gtitle='Tags' multiple=true :items='[{"id":1,"value":"Speed 1x", selected: true},{"id":2,"value":"Population"},{"id":3,"value":"Wiping cloths are kept clean and dry or else immersed in properly diluted sanitizer. Separate cloths are used for wiping food-contact and non-food-contact surfaces."}]' @select-change="testChange")
+								label.inpt
+									span.inpt-title Web Manuals Url
+									input(type='text')
+							.right
+								.row.gap.flw.row-gap
+									label.checkbox.checkbox-arr
+										input(type='checkbox')
+										span.checkbox-bg
+											span.checkbox-body
+										span Evaluations
+									label.checkbox.checkbox-arr
+										input(type='checkbox')
+										span.checkbox-bg
+											span.checkbox-body
+										span Monthly Reporting
+									label.checkbox.checkbox-arr
+										input(type='checkbox')
+										span.checkbox-bg
+											span.checkbox-body
+										span 4-Weeks Period Reporting
+									label.checkbox.checkbox-arr
+										input(type='checkbox')
+										span.checkbox-bg
+											span.checkbox-body
+										span Performance By KPI
+									label.checkbox.checkbox-arr
+										input(type='checkbox')
+										span.checkbox-bg
+											span.checkbox-body
+										span Performance By KPI
+									label.checkbox.checkbox-arr
+										input(type='checkbox')
+										span.checkbox-bg
+											span.checkbox-body
+										span Performance By KPI
+									label.checkbox.checkbox-arr
+										input(type='checkbox')
+										span.checkbox-bg
+											span.checkbox-body
+										span Performance By KPI
+									label.checkbox.checkbox-arr
+										input(type='checkbox')
+										span.checkbox-bg
+											span.checkbox-body
+										span Performance By KPI
+									label.checkbox.checkbox-arr
+										input(type='checkbox')
+										span.checkbox-bg
+											span.checkbox-body
+										span Performance By KPI
+									label.checkbox.checkbox-arr
+										input(type='checkbox')
+										span.checkbox-bg
+											span.checkbox-body
+										span Performance By KPI
+									label.checkbox.checkbox-arr
+										input(type='checkbox')
+										span.checkbox-bg
+											span.checkbox-body
+										span Performance By KPI
+									label.checkbox.checkbox-arr
+										input(type='checkbox')
+										span.checkbox-bg
+											span.checkbox-body
+										span Performance By KPI
+									label.checkbox.checkbox-arr
+										input(type='checkbox')
+										span.checkbox-bg
+											span.checkbox-body
+										span Performance By KPI
+									label.checkbox.checkbox-arr
+										input(type='checkbox')
+										span.checkbox-bg
+											span.checkbox-body
+										span Performance By KPI
+									label.checkbox.checkbox-arr
+										input(type='checkbox')
+										span.checkbox-bg
+											span.checkbox-body
+										span Google Reviews
+									label.checkbox.checkbox-arr
+										input(type='checkbox')
+										span.checkbox-bg
+											span.checkbox-body
+										span Allow map pin to show based on ZIP code alone
+									label.checkbox.checkbox-arr
+										input(type='checkbox')
+										span.checkbox-bg
+											span.checkbox-body
+										span Scorecards Coloring
+									label.checkbox.checkbox-arr
+										input(type='checkbox')
+										span.checkbox-bg
+											span.checkbox-body
+										span Show benchmark selection to basic users
+									label.checkbox.checkbox-arr
+										input(type='checkbox')
+										span.checkbox-bg
+											span.checkbox-body
+										span Show ranking to basic users
+				.page-block(data-block='customization')
+					.profile-row
+						h2.block-title Customization info
+						form.credentials-form.profile-form
+							.customize-badge_row
+								.customize-badge
+									span Unit color
+									button.customize-badge_color
+								.customize-badge
+									span Active unit color
+									button.customize-badge_color
+								.customize-badge
+									span Header background
+									button.customize-badge_color
+								.customize-badge
+									span Buttons color
+									button.customize-badge_color
+								.customize-badge
+									span Logo
+									input(type='file').customize-badge_file
+									+img('westside.png').customize-badge_img
+								.customize-badge
+									span.customize-badge_bg(style="background-image: url('/img/map.png')")
+									strong.customize-badge_text Marker Icon
+									input(type='file').customize-badge_file
+									button.customize-badge_icon.customize-badge_color
+										+img('icon.png')
+							.customize-badge_row.customize-badge_bottom
+								button.btn.btn-empty
+									span Reset
+								p.customize-text
+									| Attention! The reset button will return everything to the default values.
+									| Please note that branding takes place only on a light theme, the dark theme remains standard.
+				.page-block(data-block='reports')
+					form.block-header.profile-row
+						h2.block-title Report Settings
+						.block-header_actions.gap-withoutflex
+							a.btn-link Cancel
+							a.btn.black Save
+					.profile-row
+						.select.full
+							.select-title
+								span Units
+							.select-cont
+								.select-head
+									.select-item
+										span Westside Pizza - Unit 59 - LUBBOCK
+								.select-arrow
+									svg.icon
+										use(xlink:href="/img/sprite.svg#select")
+								.select-body
+				.page-block(data-block='status')
+					form.block-header.profile-row
+						h2.block-title Status report
+						.block-header_actions.gap-withoutflex
+							a.btn-link Cancel
+							a.btn.black Save
+					include status
+				.page-block(data-block='segmentation')
+					include report
+				.page-block(data-block='points')
+					include org-parts/points
+				.page-block(data-block='kpi-cat')
+					include org-parts/kpi-cats
+				.page-block(data-block='kpi')
+					include org-parts/kpi
+				.page-block(data-block='schedule')
+					include org-parts/schedule
+				.page-block(data-block='what')
+					include org-parts/what
+				.page-block(data-block='calc')
+					include org-parts/calc
+				.page-block(data-block='prior')
+					include org-parts/prior
+				.page-block(data-block='types')
+					include org-parts/types
+				.page-block(data-block='rolling')
+					include org-parts/rolling
+				.page-block(data-block='performance')
+					include org-parts/performance
+				.page-block(data-block='quick')
+					include org-parts/quick
+				.page-block(data-block='forms')
+					include org-parts/forms
+				.page-block(data-block='google')
+					include org-parts/google
+				.page-block(data-block='settings')
+					include org-parts/settings

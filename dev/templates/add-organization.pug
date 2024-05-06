@@ -1,0 +1,128 @@
+extends template/main
+append vars
+	-
+		page_title = 'Add organization'
+block aside
+	include aside
+	include asides/aside-uuo
+block content
+	main.main.-full-withpad#app
+		include template/header
+		.workspace.block
+			section.block
+				.row.block-head-row
+					.block-left
+						h2.block-title Create new Organization
+					.block-header-right.gap(style='width:100%')
+						button.btn.black
+							span Save
+			section.block
+				form.profile-form.org-form.row
+					.left
+						label.inpt
+							span.inpt-title Name
+							input(type='text')
+						label.textarea
+							span.textarea-title Description
+							textarea
+						g-select(gtitle='Tags' multiple=true :items='[{"id":1,"value":"Speed 1x", selected: true},{"id":2,"value":"Population"},{"id":3,"value":"Wiping cloths are kept clean and dry or else immersed in properly diluted sanitizer. Separate cloths are used for wiping food-contact and non-food-contact surfaces."}]' @select-change="testChange")
+						label.inpt
+							span.inpt-title Web Manuals Url
+							input(type='text')
+					.right
+						.row.gap.flw.row-gap
+							label.checkbox.checkbox-arr
+								input(type='checkbox')
+								span.checkbox-bg
+									span.checkbox-body
+								span Evaluations
+							label.checkbox.checkbox-arr
+								input(type='checkbox')
+								span.checkbox-bg
+									span.checkbox-body
+								span Monthly Reporting
+							label.checkbox.checkbox-arr
+								input(type='checkbox')
+								span.checkbox-bg
+									span.checkbox-body
+								span 4-Weeks Period Reporting
+							label.checkbox.checkbox-arr
+								input(type='checkbox')
+								span.checkbox-bg
+									span.checkbox-body
+								span Performance By KPI
+							label.checkbox.checkbox-arr
+								input(type='checkbox')
+								span.checkbox-bg
+									span.checkbox-body
+								span Performance By KPI
+							label.checkbox.checkbox-arr
+								input(type='checkbox')
+								span.checkbox-bg
+									span.checkbox-body
+								span Performance By KPI
+							label.checkbox.checkbox-arr
+								input(type='checkbox')
+								span.checkbox-bg
+									span.checkbox-body
+								span Performance By KPI
+							label.checkbox.checkbox-arr
+								input(type='checkbox')
+								span.checkbox-bg
+									span.checkbox-body
+								span Performance By KPI
+							label.checkbox.checkbox-arr
+								input(type='checkbox')
+								span.checkbox-bg
+									span.checkbox-body
+								span Performance By KPI
+							label.checkbox.checkbox-arr
+								input(type='checkbox')
+								span.checkbox-bg
+									span.checkbox-body
+								span Performance By KPI
+							label.checkbox.checkbox-arr
+								input(type='checkbox')
+								span.checkbox-bg
+									span.checkbox-body
+								span Performance By KPI
+							label.checkbox.checkbox-arr
+								input(type='checkbox')
+								span.checkbox-bg
+									span.checkbox-body
+								span Performance By KPI
+							label.checkbox.checkbox-arr
+								input(type='checkbox')
+								span.checkbox-bg
+									span.checkbox-body
+								span Performance By KPI
+							label.checkbox.checkbox-arr
+								input(type='checkbox')
+								span.checkbox-bg
+									span.checkbox-body
+								span Performance By KPI
+							label.checkbox.checkbox-arr
+								input(type='checkbox')
+								span.checkbox-bg
+									span.checkbox-body
+								span Google Reviews
+							label.checkbox.checkbox-arr
+								input(type='checkbox')
+								span.checkbox-bg
+									span.checkbox-body
+								span Allow map pin to show based on ZIP code alone
+							label.checkbox.checkbox-arr
+								input(type='checkbox')
+								span.checkbox-bg
+									span.checkbox-body
+								span Scorecards Coloring
+							label.checkbox.checkbox-arr
+								input(type='checkbox')
+								span.checkbox-bg
+									span.checkbox-body
+								span Show benchmark selection to basic users
+							label.checkbox.checkbox-arr
+								input(type='checkbox')
+								span.checkbox-bg
+									span.checkbox-body
+								span Show ranking to basic users

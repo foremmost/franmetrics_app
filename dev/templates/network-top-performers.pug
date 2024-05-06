@@ -1,0 +1,91 @@
+extends template/main
+append vars
+	-
+		page_title = 'Главная'
+block aside
+	include aside
+	include asides/aside-network
+block content
+	main.main.-full-withpad#app
+		include template/header
+		.workspace.block
+			section.block
+				.row.block-head-row
+					.block-left
+						.block-head-row
+							g-select(gtitle="Start Date" :items='[{"id":1,"value":"Dec 2023"},{"id":2,"value":"Jan 2023"}]' @select-change="testChange")
+							g-select(gtitle="End Date" :items='[{"id":1,"value":"Jan 2023"},{"id":2,"value":"Population"}]' @select-change="testChange")
+					.block-header-right
+						.block-head-row
+							button.btn.black
+								span Go
+							button.btn.btn-empty
+								span Reset
+			section.block
+				.block-header.block-header-table.gap
+					h2.block-title
+						| Top performers kpi
+					g-select(:items='[{"id":1,"value":"Speed 1x", selected: true},{"id":2,"value":"Population"}]' @select-change="testChange")
+					label.checkbox
+						input(type='checkbox')
+						span.checkbox-bg
+							span.checkbox-body
+						span AutoScroll
+					.block-header_actions.gap-withoutflex
+						button.btn.btn-empty
+							| Quick Actions
+				.block-body
+					.block-body
+					.block-table
+						table.table
+							thead.table-head
+								tr
+									th._fill
+										.table-th
+											span #
+									th
+									th._fill
+										.table-th
+											span FOOD SALES
+									th
+									th._fill
+										.table-th
+											span FOOD SALES
+									th
+									th._fill
+										.table-th
+											span FOOD SALES
+									th
+									th._fill
+										.table-th
+											span FOOD SALES
+							tbody
+								-for(let i=1;i<10;i++)
+									tr.table-row
+										td._fill
+											.table-td
+												span #0#{i}
+										td
+											.table-td
+												span Unit 40 &mdash; YAKIMA
+										td._fill
+											.table-td
+												span $ 101, 242
+										td
+											.table-td
+												span Unit 40 &mdash; YAKIMA
+										td._fill
+											.table-td
+												span $ 101, 242
+										td
+											.table-td
+												span Unit 40 &mdash; YAKIMA
+										td._fill
+											.table-td
+												span $ 91,454
+										td
+											.table-td
+												span Unit 40 &mdash; YAKIMA
+										td._fill
+											.table-td
+												span $ 91,454

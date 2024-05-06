@@ -46,10 +46,6 @@ font_inc($family,$name)
   @font-face
     src url('fonts/'+$name)
     font-family $family
-font($size,$family,$color=null)
-  font $size $family
-  if($color != null)
-    color $color
 bg($size=null,$color=null,$image=null,$position=null,$repeat=null)
   if( ($color != null) || ($image != null) ||($position != null) ||($repeat != null) )
     background $color $image $position $repeat

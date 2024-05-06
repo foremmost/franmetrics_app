@@ -1,0 +1,344 @@
+extends template/main
+append vars
+	-
+		page_title = 'Главная'
+block aside
+	include aside
+	include asides/aside-profile
+block content
+	main.main.-full-withpad.profile
+		include template/header
+		.workspace.block
+			section.block.profile-block.workspace
+				.page-block(data-block='main').-block-active
+					form.block-header.profile-row
+						h2.block-title User profile
+						.block-header_actions.gap-withoutflex
+							a.btn-link Cancel
+							a.btn.black Save
+					.profile-row
+						.row.gap
+							.profile-img
+								+img('darrell.png')
+							.profile-img_actions
+								.gap-withoutflex
+									label.btn.black
+										input(type='file')
+										span Upload Picture
+									button.btn-empty.btn Delete picture
+								p
+									| Update your avatar by clicking the button. Square size recommended in SVG, PNG or JPG format only.
+					.profile-row
+						h2.block-title Credentials
+						.profile-form
+							label.inpt
+								span.inpt-title First Name
+								input(type='text' value="Darell")
+							label.inpt
+								span.inpt-title Last Name
+								input(type='text' value='Steward')
+							label.inpt
+								span.inpt-title E-mail
+								input(type='email' value="test@mail.com")
+							.select
+								.select-title
+									span Units
+								.select-cont
+									.select-head
+										.select-item
+											span Westside Pizza - Unit 59 - LUBBOCK
+									.select-arrow
+										svg.icon
+											use(xlink:href="/img/sprite.svg#select")
+									.select-body
+					.profile-row
+						h2.block-title Organizations
+						.row.profile-badges
+							.profile-badge
+								span Westside Pizza
+							.profile-badge.yellow
+								span Star Barber
+					.profile-row
+						h2.block-title Units
+						.profile-badge-row.profile-badges
+							.profile-badge
+								span Westside Pizza - Unit 01 - COLVILLE
+							.profile-badge
+								span Westside Pizza - Unit 02 - CHEWELAH
+							.profile-badge
+								span Westside Pizza - Unit 3 - BAINBRIDGE ISLE
+							.profile-badge.yellow
+								span Westside Pizza - Unit 01 - FORTUNA
+							.profile-badge.yellow
+								span Westside Pizza - Unit 02 - COLVILLE
+							.profile-badge.yellow
+								span Westside Pizza - Unit 01 - BAINBRIDGE ISLE
+							.profile-badge.yellow
+								span Westside Pizza - Unit 01 - CHEWELAH
+				.page-block(data-block='password')
+					form.block-header.profile-row
+						h2.block-title Update password
+						.block-header_actions.gap-withoutflex
+							a.btn-link Cancel
+							a.btn.black Save
+					.profile-row
+						.profile-form
+							.brick
+								label.inpt
+									span.inpt-title Current password
+									input(type='password')
+							label.inpt
+								span.inpt-title New password
+								input(type='password')
+							label.inpt
+								span.inpt-title Confirm new password
+								input(type='password')
+				.page-block(data-block='units')
+					form.block-header.profile-row
+						h2.block-title Units
+						.block-header_actions.gap-withoutflex
+							a.btn-link Cancel
+							a.btn.black Save
+					.profile-row
+						.select.full
+							.select-title
+								span Units
+							.select-cont
+								.select-head
+									.select-item
+										span Westside Pizza - Unit 59 - LUBBOCK
+								.select-arrow
+									svg.icon
+										use(xlink:href="/img/sprite.svg#select")
+								.select-body
+				.page-block(data-block='organization')
+					form.block-header.profile-row
+						h2.block-title Organizations
+						.block-header_actions.gap-withoutflex
+							a.btn-link Cancel
+							a.btn.black Save
+					.profile-row
+						.select.full
+							.select-title
+								span Units
+							.select-cont
+								.select-head
+									.select-item
+										span Westside Pizza
+								.select-arrow
+									svg.icon
+										use(xlink:href="/img/sprite.svg#select")
+								.select-body
+				.page-block(data-block='trusted')
+					section.block
+						.row.block-head-row
+							.block-left
+							.block-right
+								.block-head-row
+									label.inpt.inpt-large
+										span.inpt-title Search
+										input(type='text')
+					section.block
+						.block-header.block-header-table
+							h2.block-title Devices list
+							.block-header_actions.gap-withoutflex.pagination
+								.select
+									.select-title
+										span Rows per page
+									.select-cont
+										.select-head
+											.select-item
+												span 10
+										.select-arrow
+											svg.icon
+												use(xlink:href="/img/sprite.svg#select")
+										.select-body
+								.pagination-how
+									| 1 - 10 of 276
+								.pagination-to
+									label.inpt
+										.inpt-title Go to page
+										input(type='text')
+								.pagination-arrows
+									button.pagination-left.pagination-arrow
+										svg.icon
+											use(xlink:href="/img/sprite.svg#select")
+									button.pagination-right.pagination-arrow
+										svg.icon
+											use(xlink:href="/img/sprite.svg#select")
+
+						.block-body
+							.block-table
+								table.table
+									thead.table-head
+										tr
+											th
+												.table-th
+													span #
+											th
+												.table-th
+													button.table-sort
+														svg.icon
+															use(xlink:href="/img/sprite.svg#sort")
+													span IP
+											th
+												.table-th
+													button.table-sort
+														svg.icon
+															use(xlink:href="/img/sprite.svg#sort")
+													span Browser
+											th
+												.table-th
+													button.table-sort
+														svg.icon
+															use(xlink:href="/img/sprite.svg#sort")
+													span Operating System
+											th
+												.table-th
+													button.table-sort
+														svg.icon
+															use(xlink:href="/img/sprite.svg#sort")
+													span User agent
+											th
+												.table-th
+													button.table-sort
+														svg.icon
+															use(xlink:href="/img/sprite.svg#sort")
+													span Date added
+											th
+												.table-th
+													span Handle
+									tbody
+										-for(let i=0;i< 3;i++)
+											tr.table-row
+												td
+													.table-td
+														span 5414
+												td
+													.table-td
+														span 46.42.249.219
+												td
+													.table-td
+														span Chrome 120
+												td
+													.table-td
+														span Windows 10
+												td
+													.table-td
+														span
+															| Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+												td
+													.table-td
+														.table-td-row
+															span 12/26/2023 05:15 pm
+												td
+													.table-td.table-actions
+														button.table-btn
+															svg.icon
+																use(xlink:href="/img/sprite.svg#delete")
+				.page-block(data-block='attempt')
+					section.block
+						.row.block-head-row
+							.block-left
+							.block-right
+								.block-head-row
+									label.inpt.inpt-large
+										span.inpt-title Search
+										input(type='text')
+					section.block
+						.block-header.block-header-table
+							h2.block-title Log in Attempts
+							.block-header_actions.gap-withoutflex.pagination
+								.select
+									.select-title
+										span Rows per page
+									.select-cont
+										.select-head
+											.select-item
+												span 10
+										.select-arrow
+											svg.icon
+												use(xlink:href="/img/sprite.svg#select")
+										.select-body
+								.pagination-how
+									| 1 - 10 of 276
+								.pagination-to
+									label.inpt
+										.inpt-title Go to page
+										input(type='text')
+								.pagination-arrows
+									button.pagination-left.pagination-arrow
+										svg.icon
+											use(xlink:href="/img/sprite.svg#select")
+									button.pagination-right.pagination-arrow
+										svg.icon
+											use(xlink:href="/img/sprite.svg#select")
+						.block-body
+							.block-table
+								table.table
+									thead.table-head
+										tr
+											th
+												.table-th
+													span #
+											th
+												.table-th
+													button.table-sort
+														svg.icon
+															use(xlink:href="/img/sprite.svg#sort")
+													span IP
+											th
+												.table-th
+													button.table-sort
+														svg.icon
+															use(xlink:href="/img/sprite.svg#sort")
+													span Browser
+											th
+												.table-th
+													button.table-sort
+														svg.icon
+															use(xlink:href="/img/sprite.svg#sort")
+													span Operating System
+											th
+												.table-th
+													button.table-sort
+														svg.icon
+															use(xlink:href="/img/sprite.svg#sort")
+													span User agent
+											th
+												.table-th
+													button.table-sort
+														svg.icon
+															use(xlink:href="/img/sprite.svg#sort")
+													span Date added
+											th
+												.table-th
+													span Handle
+									tbody
+										-for(let i=0;i < 8;i++)
+											tr.table-row
+												td
+													.table-td
+														span 5414
+												td
+													.table-td
+														span 46.42.249.219
+												td
+													.table-td
+														span Chrome 120
+												td
+													.table-td
+														span Windows 10
+												td
+													.table-td
+														span
+															| Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+												td
+													.table-td
+														.table-td-row
+															span 12/26/2023 05:15 pm
+												td
+													.table-td.table-actions
+														button.table-btn
+															svg.icon
+																use(xlink:href="/img/sprite.svg#delete")

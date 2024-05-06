@@ -1,0 +1,27 @@
+.aside-inner.aside#inner-aside.-open
+	.aside-header
+		.aside-row
+			.aside-logo
+			.aside-action
+				button.btn-circle.btn-close(data-click="front:closeMenu")
+					svg.icon
+						use(xlink:href="/img/sprite.svg#close")
+	.aside-section
+		h5.aside-title Nested items
+		.aside-section_body
+			ul.aside-items
+				li.aside-item.-selected
+					a(href="#")
+						svg.aside-item_img.icon
+							use(xlink:href="/img/sprite.svg#reports")
+					span.aside-item_tex
+						| Reports
+			ul.aside-inner-items
+				li.aside-inner-item
+					.aside-inner-item_header
+						a.aside-item_tex(href='/reports.html')
+							| Reports
+				li.aside-inner-item
+					.aside-inner-item_header
+						a.aside-item_tex(href='/reports.html')
+							| Internal report

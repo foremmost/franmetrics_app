@@ -1,0 +1,97 @@
+extends template/main
+append vars
+	-
+		page_title = 'Forms'
+block aside
+	include aside
+	include asides/aside-forms
+block content
+	main.main.-full-withpad#app
+		include template/header
+		.workspace.block
+			section.block
+				.row.block-head-row
+					.block-left
+						h2.block-title Forms
+					.block-header-right.gap(style='width:100%')
+						button.btn.btn-empty.btn-with-img
+							svg.icon
+								use(xlink:href="/img/sprite.svg#plus")
+							span Add field
+						button.btn.btn-empty.btn-with-img
+							svg.icon
+								use(xlink:href="/img/sprite.svg#plus")
+							span Add tab
+						button.btn.btn-empty.btn-with-img
+							svg.icon
+								use(xlink:href="/img/sprite.svg#submit")
+							span Submit
+						button.btn.btn-empty.btn-with-img
+							svg.icon
+								use(xlink:href="/img/sprite.svg#import")
+							span Import Fields
+						button.btn.btn-empty.btn-with-img
+							svg.icon
+								use(xlink:href="/img/sprite.svg#export")
+							span Export Fields
+				.block-body
+					.block-table
+						table.table._fill
+							thead.table-head
+								tr
+									th
+										.table-th
+											span Organization
+									th
+										.table-th
+											span Active units
+									th
+										.table-th
+											span List of features turned on
+									th
+										.table-th
+											span Monthly reporting
+									th
+										.table-th
+											span Weekly reporting
+									th
+										.table-th
+											span Evaluations
+									th
+										.table-th
+											span User list
+									th
+										.table-th
+											span Partner Units
+							tbody
+								tr.table-row
+								-for (let i = 0; i < 8; i++)
+									tr.table-row
+										td
+											.table-td
+												a.btn
+													span Westside Pizza
+										td
+											.table-td
+												span 42
+										td
+											.table-td
+												span
+													| QuickBooks API integration
+													| CSV import
+													| Google Reviews
+										td
+											.table-td
+												span On
+										td
+											.table-td
+												span Off
+										td
+											.table-td
+												span On
+										td
+											.table-td
+												span 52
+										td
+											.table-td
+												span 0

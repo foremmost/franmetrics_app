@@ -1,0 +1,47 @@
+section.block
+	.block-header.block-header-table
+		h2.block-title KPI Categories
+		.block-header_actions.gap-withoutflex.pagination
+			button.btn
+				span Add Category
+	.block-body
+		.block-table
+			table.table
+				thead.table-head
+					tr
+						th
+							.table-th
+								span Name
+						th
+							.table-th
+								span Handle
+				tbody
+					tr.table-row
+						td
+							.table-td
+								label.inpt
+									input(type='text' placeholder='Name')
+						td
+							.table-td.table-actions
+								button.table-btn
+									svg.icon
+										use(xlink:href="/img/sprite.svg#save")
+								button.table-btn
+									svg.icon
+										use(xlink:href="/img/sprite.svg#delete")
+					-for(let i = 0;i < 4;i++)
+						tr.table-row
+							td
+								.table-td
+									span Profitability
+							td
+								.table-td.table-actions
+									button.table-btn
+										svg.icon
+											use(xlink:href="/img/sprite.svg#edit")
+									button.table-btn
+										svg.icon
+											use(xlink:href="/img/sprite.svg#delete")
+									button.table-btn._filled
+										svg.icon
+											use(xlink:href="/img/sprite.svg#move")

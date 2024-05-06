@@ -1,0 +1,201 @@
+extends template/main
+append vars
+	-
+		page_title = 'Forms'
+block aside
+	include aside
+	include asides/aside-forms
+block content
+	main.main.-full-withpad#app
+		include template/header
+		.workspace.block
+			section.block
+				.row.block-head-row
+					.block-left
+						h2.block-title Forms
+					.block-header-right.gap(style='width:100%')
+						button.btn.btn-empty.btn-with-img
+							svg.icon
+								use(xlink:href="/img/sprite.svg#import")
+							span Import Fields
+						button.btn.btn-empty.btn-with-img
+							svg.icon
+								use(xlink:href="/img/sprite.svg#export")
+							span Export Fields
+						button.btn.btn-empty.btn-with-img
+							svg.icon
+								use(xlink:href="/img/sprite.svg#submit")
+							span Submit
+			section.block
+				form.form-settings.profile-form.row
+					.left
+						label.inpt
+							span.inpt-title Form Name
+							input(type='text')
+						label.inpt
+							span.inpt-title Passing Score
+							input(type='text')
+						label.inpt
+							span.inpt-title Inner header
+							input(type='text')
+						g-select(gtitle='Organization' :items='[{"id":1,"value":"Speed 1x", selected: true},{"id":2,"value":"Population"}]')
+						g-select(gtitle='Speedometers' multiple=true :items='[{"id":1,"value":"Speed 1x", selected: true},{"id":2,"value":"Population"},{"id":3,"value":"Wiping cloths are kept clean and dry or else immersed in properly diluted sanitizer. Separate cloths are used for wiping food-contact and non-food-contact surfaces."}]' @select-change="testChange")
+						label.inpt
+							span.inpt-title Datapoint Name
+							input(type='text')
+						label.inpt
+							span.inpt-title Days
+							input(type='text')
+					.right
+						.row.gap.flw.row-gap
+							label.checkbox.checkbox-arr
+								input(type='checkbox')
+								span.checkbox-bg
+									span.checkbox-body
+								span Allow Self Evaluations
+							label.checkbox.checkbox-arr
+								input(type='checkbox')
+								span.checkbox-bg
+									span.checkbox-body
+								span Show As Datapoint
+							label.checkbox.checkbox-arr
+								input(type='checkbox')
+								span.checkbox-bg
+									span.checkbox-body
+								span Allow Single Use form (Mystery Shops)
+							label.checkbox.checkbox-arr
+								input(type='checkbox')
+								span.checkbox-bg
+									span.checkbox-body
+								span Get notifications when a unit has not had an evaluation after
+
+			section.block
+				.row.block-head-row
+					.block-left
+						h2.block-title Forms scheme
+					.block-header-right.gap(style='width:100%')
+						button.btn.btn-empty.btn-with-img.btn-dropdown
+							em.btn-dropdown_body
+								svg.icon
+									use(xlink:href="/img/sprite.svg#plus")
+								span Add field
+							em.btn-dropdown_arr
+								svg.icon
+									use(xlink:href="/img/sprite.svg#select")
+							ul.btn-dropdown_list.select-body.-opened
+								li.select-body_item
+									span Add category (subcategories)
+								li.select-body_item
+									span Add category (fields)
+								li.select-body_item
+									span Add subcategory
+								li.select-body_item
+									span Tag
+						button.btn.btn-empty.btn-with-img.btn-dropdown
+							em.btn-dropdown_body
+								svg.icon
+									use(xlink:href="/img/sprite.svg#plus")
+								span Add tab
+							em.btn-dropdown_arr
+								svg.icon
+									use(xlink:href="/img/sprite.svg#select")
+				.block-body
+					.row.form-row.gap
+						.form-left
+							.form-category
+								span General Category
+								span.delim /
+								strong CAM
+							.form-fields
+								-for(let i=0;i<3;i++)
+									.form-field
+										.form-field-header.row
+											button.form-move
+												svg.icon
+													use(xlink:href="/img/sprite.svg#move")
+											label.form-inpt.inpt
+												input(type='text' value="Which are you evaluating?")
+											button.form-delete
+												svg.icon
+													use(xlink:href="/img/sprite.svg#delete")
+										.form-field-body
+											g-select(:items='[{"id":1,"value":"Speed 1x", selected: true},{"id":2,"value":"Population"}]')
+										.form-field-footer.row
+											label.checkbox
+												input(type='checkbox')
+												span.checkbox-bg
+													span.checkbox-body
+												span Required
+											label.checkbox
+												input(type='checkbox' checked)
+												span.checkbox-bg
+													span.checkbox-body
+												span Notes
+											label.checkbox
+												input(type='checkbox')
+												span.checkbox-bg
+													span.checkbox-body
+												span Notes Required
+											label.checkbox
+												input(type='checkbox')
+												span.checkbox-bg
+													span.checkbox-body
+												span Files
+											label.checkbox
+												input(type='checkbox')
+												span.checkbox-bg
+													span.checkbox-body
+												span Files
+						.form-right
+							.form-category
+								strong First page
+							.form-subcategories
+								.form-subcategory.-opened
+									.form-subcategory-header.row.gap
+										button.form-move
+											svg.icon
+												use(xlink:href="/img/sprite.svg#move")
+										strong Example category
+										.form-subcategory-actions.gap
+											button.form-delete
+												svg.icon
+													use(xlink:href="/img/sprite.svg#delete")
+											.form-delim
+											button.form-arr
+												svg.icon
+													use(xlink:href="/img/sprite.svg#select")
+									.form-subcategory-body
+										.form-subcategory
+											.form-subcategory-header.row.gap.-active
+												button.form-move
+													svg.icon
+														use(xlink:href="/img/sprite.svg#move")
+												strong CAM
+										.form-subcategory
+											.form-subcategory-header.row.gap
+												button.form-move
+													svg.icon
+														use(xlink:href="/img/sprite.svg#move")
+												strong Guest relations
+										.form-subcategory
+											.form-subcategory-header.row.gap
+												button.form-move
+													svg.icon
+														use(xlink:href="/img/sprite.svg#move")
+												strong Guest relations
+								.form-subcategory
+									.form-subcategory-header.row.gap
+										button.form-move
+											svg.icon
+												use(xlink:href="/img/sprite.svg#move")
+										strong Example category
+										.form-subcategory-actions.gap
+											button.form-delete
+												svg.icon
+													use(xlink:href="/img/sprite.svg#delete")
+											.form-delim
+											button.form-arr
+												svg.icon
+													use(xlink:href="/img/sprite.svg#select")
+							.form-category
+								strong Last page

@@ -1,0 +1,41 @@
+extends template/main
+append vars
+	-
+		page_title = 'Add newsletter'
+block aside
+	include aside
+	include asides/aside-settings
+block content
+	main.main.-full-withpad.profile#app
+		include template/header
+		section.block.profile-block.workspace
+			.page-block.-block-active
+				form.block-header.profile-row
+					h2.block-title Create new newsletter
+					.block-header-right
+						button.btn.black
+							span Save
+				.profile-row
+					h2.block-title Users Filter
+					.profile-form.org-form
+						g-select(gtitle='By Role' :items='[{"id":1,"value":"Speed 1x", selected: true},{"id":2,"value":"Population"}]')
+						g-select(gtitle='By Organizations' :items='[{"id":1,"value":"Speed 1x", selected: true},{"id":2,"value":"Population"}]')
+						g-select(gtitle='By The Last Activity Date' :items='[{"id":1,"value":"Speed 1x", selected: true},{"id":2,"value":"Population"}]')
+						g-select(gtitle='Units' :items='[{"id":1,"value":"Speed 1x", selected: true},{"id":2,"value":"Population"}]')
+			.block
+				.row.row-gap
+					label.inpt.full
+						input(type='text')
+						span.inpt-title Subject
+				.redactor
+					.redactor-header
+						button.redactor-btn
+							svg.icon.none
+								use(xlink:href="/img/sprite.svg#back")
+						button.redactor-btn
+							svg.icon.none
+								use(xlink:href="/img/sprite.svg#back")
+						button.redactor-btn
+							span Normal
+							svg.icon
+								use(xlink:href="/img/sprite.svg#select")

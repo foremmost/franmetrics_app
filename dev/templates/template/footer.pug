@@ -1,3 +1,21 @@
+include ../../../../../core/mixins/mixins
 footer.foot
 	.section
+		script(src="https://unpkg.com/vue@3.0.11/dist/vue.global.js")
 		+inc('js','front.js',false)(type="module")
+		script.
+			const franApp = Vue.createApp({
+				data() {
+					return {
+
+					}
+				},
+				methods:{
+					testChange(selectedItem){
+						console.log(selectedItem)
+					}
+				}
+			})
+		script(src='./components/Gselect.js')
+		script.
+			const mountedApp = franApp.mount('#app')

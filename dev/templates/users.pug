@@ -1,0 +1,145 @@
+extends template/main
+append vars
+	-
+		page_title = 'Главная'
+block aside
+	include aside
+	include asides/aside-uuo
+block content
+	main.main.-full-withpad
+		include template/header
+		.workspace.block
+			section.block
+				.row.block-head-row
+					.block-header-left
+						.block-head-row
+							a.btn(href='/create-user.html')
+								span Create
+					.block-header-right
+						.block-head-row
+							label.checkbox
+								input(type='checkbox')
+								span.checkbox-bg
+									span.checkbox-body
+								span Is Organization Admin
+							label.checkbox
+								input(type='checkbox')
+								span.checkbox-bg
+									span.checkbox-body
+								span Has Access to Global Reports
+							button.btn.btn-empty.btn-with-img
+								svg.icon
+									use(xlink:href="/img/sprite.svg#filter")
+								span Filter
+							label.inpt.inpt-large
+								span.inpt-title Search
+								input(type='text')
+			section.block
+				.block-header.block-header-table
+					h2.block-title Users
+					.block-header_actions.gap-withoutflex.pagination
+						.select
+							.select-title
+								span Rows per page
+							.select-cont
+								.select-head
+									.select-item
+										span 10
+								.select-arrow
+									svg.icon
+										use(xlink:href="/img/sprite.svg#select")
+								.select-body
+						.pagination-how
+							| 1 - 10 of 276
+						.pagination-to
+							label.inpt
+								.inpt-title Go to page
+								input(type='text')
+						.pagination-arrows
+							button.pagination-left.pagination-arrow
+								svg.icon
+									use(xlink:href="/img/sprite.svg#select")
+							button.pagination-right.pagination-arrow
+								svg.icon
+									use(xlink:href="/img/sprite.svg#select")
+				.block-body
+					.block-table
+						table.table
+							thead.table-head
+								tr
+									th
+										.table-th
+											span #
+									th
+										.table-th
+											button.table-sort
+												svg.icon
+													use(xlink:href="/img/sprite.svg#sort")
+											span NAME
+									th
+										.table-th
+											button.table-sort
+												svg.icon
+													use(xlink:href="/img/sprite.svg#sort")
+											span Lastname
+									th
+										.table-th
+											button.table-sort
+												svg.icon
+													use(xlink:href="/img/sprite.svg#sort")
+											span E-mail
+									th
+										.table-th
+											button.table-sort
+												svg.icon
+													use(xlink:href="/img/sprite.svg#sort")
+											span Organizations
+									th
+										.table-th
+											button.table-sort
+												svg.icon
+													use(xlink:href="/img/sprite.svg#sort")
+											span Units
+									th
+										.table-th
+											button.table-sort
+												svg.icon
+													use(xlink:href="/img/sprite.svg#sort")
+											span Status
+									th
+										.table-th
+											span Actions
+							tbody
+								-for(let i=0;i< 10;i++)
+									tr.table-row
+										td
+											.table-td
+												span 1239
+										td
+											.table-td
+												span Kevin
+										td
+											.table-td
+												span McReynolds
+										td
+											.table-td
+												span kevin@franmetrics.net
+										td
+											.table-td
+												span Sasquatch Strength
+										td
+											.table-td
+												.table-td-row
+													span Unit 51
+										td
+											.table-td
+												.table-td-badge.-success
+													span Active
+										td
+											.table-td.table-actions
+												button.table-btn
+													svg.icon
+														use(xlink:href="/img/sprite.svg#edit")
+												button.table-btn
+													svg.icon
+														use(xlink:href="/img/sprite.svg#delete")

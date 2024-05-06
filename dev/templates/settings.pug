@@ -1,0 +1,24 @@
+extends template/main
+append vars
+	-
+		page_title = 'Settings'
+block aside
+	include aside
+	include asides/aside-settings
+block content
+	main.main.-full-withpad#app
+		include template/header
+		.workspace.block
+			section.page-block.-block-active
+				.block-header.profile-row
+					h2.block-title Settings
+					.block-header_actions.gap-withoutflex
+						a.btn.black Save
+				.profile-row
+					.profile-form
+						label.inpt
+							span.inpt-title Maintenance
+							input(type='text' value="01/02/2021 00:00:00 am")
+						label.inpt
+							span.inpt-title Maintenance hours
+							input(type='text' value='2')

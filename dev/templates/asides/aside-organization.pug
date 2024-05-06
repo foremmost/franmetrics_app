@@ -1,0 +1,94 @@
+include ../../../../../core/mixins/mixins
+.aside-inner.aside#inner-aside.-open
+	.aside-header
+		.aside-row
+			.aside-logo
+			.aside-action
+				button.btn-circle.btn-close(data-click="front:closeMenu")
+					svg.icon
+						use(xlink:href="/img/sprite.svg#close")
+	.aside-section
+		h5.aside-title Nested items
+		.aside-section_body
+			ul.aside-items
+				li.aside-item.-selected
+					span.aside-item_tex
+						| Edit organization
+				li.aside-inner-item.-active
+					.aside-inner-item_header
+						a.aside-item_tex(href='#')(data-click='front:chooseBlock' data-target-block='main')
+							| Main info
+				li.aside-inner-item
+					.aside-inner-item_header
+						a.aside-item_tex(href='#')(data-click='front:chooseBlock' data-target-block='customization')
+							| Customization info
+				li.aside-inner-item
+					.aside-inner-item_header
+						span.aside-item_tex(href='#')
+							| Report Settings
+						svg.aside-item_img.icon
+							use(xlink:href="/img/sprite.svg#select")
+					ul.aside-inner-item-list
+						li.aside-inner-item-list_item
+							a(href='#' data-click='front:chooseBlock' data-target-block='points')
+								| Data points
+						li.aside-inner-item-list_item
+							a(href='#' data-click='front:chooseBlock' data-target-block='kpi-cat')
+								| KPI Categories
+						li.aside-inner-item-list_item
+							a(href='#' data-click='front:chooseBlock' data-target-block='kpi')
+								| KPIs
+						li.aside-inner-item-list_item
+							a(href='#' data-click='front:chooseBlock' data-target-block='schedule')
+								| Notifications Schedule
+						li.aside-inner-item-list_item
+							a(href='#' data-click='front:chooseBlock' data-target-block='what')
+								| What if's
+						li.aside-inner-item-list_item
+							a(href='#' data-click='front:chooseBlock' data-target-block='calc')
+								| Calculation Type
+						li.aside-inner-item-list_item
+							a(href='#' data-click='front:chooseBlock' data-target-block='prior')
+								| Default Prior Column
+						li.aside-inner-item-list_item
+							a(href='#' data-click='front:chooseBlock' data-target-block='types')
+								| Report Types
+						li.aside-inner-item-list_item
+							a(href='#' data-click='front:chooseBlock' data-target-block='rolling')
+								| Rolling Average Options
+						li.aside-inner-item-list_item
+							a(href='#' data-click='front:chooseBlock' data-target-block='performance')
+								| Performance KPI Settings
+				li.aside-inner-item
+					.aside-inner-item_header
+						a.aside-item_tex(href='#')(data-click='front:chooseBlock' data-target-block='status')
+							| Status Report
+				li.aside-inner-item
+					.aside-inner-item_header
+						a.aside-item_tex(href='#')(data-click='front:chooseBlock' data-target-block='segmentation')
+							| Segmentation
+				li.aside-inner-item
+					.aside-inner-item_header
+						span.aside-item_tex(href='#')
+							| QuickBooks Statuses
+						svg.aside-item_img.icon
+							use(xlink:href="/img/sprite.svg#select")
+					ul.aside-inner-item-list
+						li.aside-inner-item-list_item
+							a(href='#' data-click='front:chooseBlock' data-target-block='quick')
+								| Auto Update
+						li.aside-inner-item-list_item
+							a(href='#' data-click='front:chooseBlock' data-target-block='kpi-cat')
+								| Structure Change
+				li.aside-inner-item
+					.aside-inner-item_header
+						a.aside-item_tex(href='#')(data-click='front:chooseBlock' data-target-block='forms')
+							| Forms Report
+				li.aside-inner-item
+					.aside-inner-item_header
+						a.aside-item_tex(href='#' data-click='front:chooseBlock' data-target-block='google')
+							| Google Reviews
+				li.aside-inner-item
+					.aside-inner-item_header
+						a.aside-item_tex(href='#')(data-click='front:chooseBlock' data-target-block='settings')
+							| Unit Settings

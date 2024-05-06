@@ -1,0 +1,45 @@
+.aside-inner.aside#inner-aside.-open
+	.aside-header
+		.aside-row
+			.aside-logo
+			.aside-action
+				button.btn-circle.btn-close(data-click="front:closeMenu")
+					svg.icon
+						use(xlink:href="/img/sprite.svg#close")
+	.aside-section
+		h5.aside-title Nested items
+		.aside-section_body
+			ul.aside-items
+				li.aside-item.-selected
+					a(href="#")
+						svg.aside-item_img.icon
+							use(xlink:href="/img/sprite.svg#project")
+					span.aside-item_tex
+						| Unit 40 &mdash; YAKIMA
+						i.aside-item_digit (2)
+			ul.aside-inner-items
+				li.aside-inner-item
+					.aside-inner-item_header
+						span.aside-item_tex
+							| Reports
+						svg.aside-item_img.icon
+							use(xlink:href="/img/sprite.svg#select")
+					ul.aside-inner-item-list
+						li.aside-inner-item-list_item
+							a(href='/unit-monthly-report.html') Monthly Scorecard Report
+						li.aside-inner-item-list_item
+							a(href='/unit-trands-report.html') Monthly Trends Report
+						li.aside-inner-item-list_item
+							a(href='/unit-break-reports.html') Break-Even Analysis Report
+				li.aside-inner-item
+					.aside-inner-item_header
+						a.aside-item_tex(href='/unit-google-reviews.html')
+							| Google Reviews
+				li.aside-inner-item
+					.aside-inner-item_header
+						a.aside-item_tex(href='#')
+							| Files
+				li.aside-inner-item
+					.aside-inner-item_header
+						a.aside-item_tex(href='/evaluation.html')
+							| Evaluations

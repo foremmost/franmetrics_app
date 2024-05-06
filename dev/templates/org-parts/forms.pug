@@ -1,0 +1,57 @@
+.profile-row
+	h2.block-title Units
+	.report-segments
+		.status-block.report-block.-opened
+			.status-block-header
+				.status-block-header_item.row
+					.status-block-header_title
+						span Full Westside Pizza Evaluation (Updated 5-01-23)
+				button.btn-toggle.-opened
+					svg.icon
+						use(xlink:href="/img/sprite.svg#select")
+			.status-block-body
+				table.table.without-border
+					thead.table-head
+						tr.table-row
+							th
+								.table-th
+									| Unit
+							th
+								.table-th
+									| Last evaluation was done at
+					tbody
+						-for(let i =0;i < 4;i++)
+							tr.table-row
+								td
+									.table-td
+										span Unit 40 &mdash; Yakima
+								td
+									.table-td
+										span No Evaluation
+		.status-block.report-block
+			.status-block-header
+				.status-block-header_item.row
+					.status-block-header_title
+						span Test opening checklist
+				button.btn-toggle
+					svg.icon
+						use(xlink:href="/img/sprite.svg#select")
+			.status-block-body
+				table.table.without-border
+					thead.table-head
+						tr.table-row
+							th
+								.table-th
+									| Unit
+							th
+								.table-th
+									| Last evaluation was done at
+					tbody
+						-for(let i =0;i < 4;i++)
+							tr.table-row
+								td
+									.table-td
+										span Unit 40 &mdash; Yakima
+								td
+									.table-td
+										span No Evaluation

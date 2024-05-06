@@ -1,0 +1,256 @@
+extends template/main
+append vars
+	-
+		page_title = 'Consolidated Monthly Scorecard'
+block aside
+	include aside
+	include asides/aside-network
+block content
+	main.main.-full-withpad#app
+		include template/header
+		.workspace.block
+			section.block.bg-white.block-nopad
+				.block-accordeon.-opened
+					.block-accordeon-header
+						.block-accordeon-header_item
+							h2.block-title Show units with the following attributes:
+						button.btn-toggle.-opened
+							svg.icon
+								use(xlink:href="/img/sprite.svg#select")
+					.block-accordeon-body
+						.row.gap
+							g-select(gtitle="Population" :items='[{"id":1,"value":"Food Sales"},{"id":2,"value":"Population"}]' @select-change="testChange")
+							g-select(gtitle="Location" :items='[{"id":1,"value":"Food Sales"},{"id":2,"value":"Population"}]' @select-change="testChange")
+							g-select(gtitle="Ownership Type" :items='[{"id":1,"value":"Food Sales"},{"id":2,"value":"Population"}]' @select-change="testChange")
+				.block-accordeon
+					.block-accordeon-header
+						.block-accordeon-header_item
+							h2.block-title Filter based on opening and closing dates:
+						button.btn-toggle
+							svg.icon
+								use(xlink:href="/img/sprite.svg#select")
+					.block-accordeon-body
+						.row.gap
+							g-select(gtitle="Include before" :items='[{"id":1,"value":"Food Sales"},{"id":2,"value":"Population"}]' )
+							g-select(gtitle="Include after" :items='[{"id":1,"value":"Food Sales"},{"id":2,"value":"Population"}]')
+							g-select(gtitle="Exclude before" :items='[{"id":1,"value":"Food Sales"},{"id":2,"value":"Population"}]')
+							g-select(gtitle="Exclude after" :items='[{"id":1,"value":"Food Sales"},{"id":2,"value":"Population"}]')
+							label.checkbox
+								input(type='checkbox')
+								span.checkbox-bg
+									span.checkbox-body
+								span Exclude all closed units
+			section.block
+				.block-body
+					.block-table
+						table.table
+							thead.table-head
+								tr
+									th
+									th
+										.table-th
+											g-select(:items='[{"id":1,"selected":true,"value":"November 2023"},{"id":2,"value":"December 2023"}]')
+									th
+										.table-th
+											g-select(:items='[{"id":1,"selected":true,"value":"November 2023"},{"id":2,"value":"December 2023"}]')
+									th
+										.table-th
+											span Total units
+									th
+										.table-th
+											g-select(:items='[{"id":1,"selected":true,"value":"January 2023"},{"id":2,"value":"December 2023"}]')
+									th
+										.table-th
+											span Trend
+									th
+										.table-th
+											g-select(:items='[{"id":1,"selected":true,"value":"November 2023"},{"id":2,"value":"December 2023"}]')
+							tbody
+								tr.table-full-row
+									td(colspan="7")._fill
+										.table-td.full
+											| PROFITABILITY
+								tr.table-row
+									td
+										.table-td
+											span Food Sales
+									td
+										.table-td
+											.table-td-badge.-success
+												span Positive
+											span $ 89,934
+									td
+										.table-td
+											span $ 50,847
+									td
+										.table-td
+											span 1 out of 20
+									td
+										.table-td
+											span $ 91,454
+									td
+										.table-td
+											.table-td-row
+												span 1.66%
+												strong
+													svg.icon
+														use(xlink:href="/img/sprite.svg#redarrow")
+									td
+										.table-td
+											span $ 94,348
+											strong
+								tr.table-row
+									td
+										.table-td
+											span Labor Cost %
+									td
+										.table-td
+											.table-td-badge.-fail
+												span Negative
+											span 32.5%
+									td
+										.table-td
+											span 34.6%
+									td
+										.table-td
+											span 8 out of 20
+									td
+										.table-td
+											span $ 91,454
+									td
+										.table-td
+											.table-td-row
+												span 1.66%
+												strong
+													svg.icon
+														use(xlink:href="/img/sprite.svg#redarrow")
+									td
+										.table-td
+											span 3.9%
+											strong
+								tr.table-full-row
+									td(colspan="7")._fill
+										.table-td.full
+											| FEEDBACK
+								tr.table-row
+									td
+										.table-td
+											span Food Sales
+									td
+										.table-td
+											.table-td-badge.-success
+												span Positive
+											span $ 89,934
+									td
+										.table-td
+											span $ 50,847
+									td
+										.table-td
+											span 1 out of 20
+									td
+										.table-td
+											span $ 91,454
+									td
+										.table-td
+											.table-td-row
+												span 1.66%
+												strong
+													svg.icon
+														use(xlink:href="/img/sprite.svg#greenarrow")
+									td
+										.table-td
+											span $ 94,348
+											strong
+								tr.table-row
+									td
+										.table-td
+											span Labor Cost %
+									td
+										.table-td
+											.table-td-badge.-success
+												span Positive
+											span 32.5%
+									td
+										.table-td
+											span 34.6%
+									td
+										.table-td
+											span 8 out of 20
+									td
+										.table-td
+											span $ 91,454
+									td
+										.table-td
+											.table-td-row
+												span 1.66%
+												strong
+													svg.icon
+														use(xlink:href="/img/sprite.svg#greenarrow")
+									td
+										.table-td
+											span 3.9%
+											strong
+								tr.table-row
+									td
+										.table-td
+											span Labor Cost %
+									td
+										.table-td
+											.table-td-badge.-fail
+												span Negative
+											span 32.5%
+									td
+										.table-td
+											span 34.6%
+									td
+										.table-td
+											span 8 out of 20
+									td
+										.table-td
+											span $ 91,454
+									td
+										.table-td
+											.table-td-row
+												span 1.66%
+												strong
+													svg.icon
+														use(xlink:href="/img/sprite.svg#redarrow")
+									td
+										.table-td
+											span 3.9%
+											strong
+								tr.table-full-row
+									td(colspan="7")._fill
+										.table-td.full
+											| Efficiency
+								tr.table-row
+									td
+										.table-td
+											span Labor Cost %
+									td
+										.table-td
+											.table-td-badge.-fail
+												span Negative
+											span 32.5%
+									td
+										.table-td
+											span 34.6%
+									td
+										.table-td
+											span 8 out of 20
+									td
+										.table-td
+											span $ 91,454
+									td
+										.table-td
+											.table-td-row
+												span 1.66%
+												strong
+													svg.icon
+														use(xlink:href="/img/sprite.svg#redarrow")
+									td
+										.table-td
+											span 3.9%
+			section.actions
+				a(href='#').btn.black Download
+				span.actions-text .xlsx

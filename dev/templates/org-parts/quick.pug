@@ -1,0 +1,43 @@
+section.block
+	.block-header.block-header-table
+		h2.block-title Units
+		.block-header_actions.gap-withoutflex.pagination
+	.block-body
+		.block-table
+			table.table
+				thead.table-head
+					tr
+						th
+							.table-th
+								span Name
+						th
+							.table-th
+								span Action
+						th
+							.table-th
+								span Status
+						th
+							.table-th
+								span LAst Update
+						th
+							.table-th
+								span Refresh Token Expired At
+				tbody
+					-for (let i = 0; i < 8; i++)
+						tr.table-row
+							td
+								.table-td
+									span Unit 01 &mdash; COLVILLE
+							td
+								.table-td
+									button.btn
+										span Connect to QuickBooks
+							td
+								.table-td
+									span Connected
+							td
+								.table-td
+									| 03/05/2024
+							td
+								.table-td
+									| 06/13/2024

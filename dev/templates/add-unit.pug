@@ -1,0 +1,49 @@
+extends template/main
+append vars
+	-
+		page_title = 'Create unit'
+block aside
+	include aside
+	include asides/aside-uuo
+block content
+	main.main.-full-withpad.profile#app
+		include template/header
+		section.block.profile-block.workspace
+			.page-block(data-block='main').-block-active
+				form.block-header.profile-row
+					h2.block-title Create new Unit
+					.block-header_actions.gap-withoutflex
+						a.btn-link Cancel
+						a.btn.black Save
+				.profile-row
+					.profile-form.org-form
+						label.inpt
+							span.inpt-title Unit Number
+							input(type='text')
+						label.inpt
+							span.inpt-title Nickname
+							input(type='text')
+						label.inpt
+							span.inpt-title City
+							input(type='text')
+						g-select(gtitle='Organization' :items='[{"id":1,"value":"Speed 1x", selected: true},{"id":2,"value":"Population"}]')
+						.row
+							label.inpt
+								span.inpt-title Address line 1
+								input(type='text')
+							label.inpt
+								span.inpt-title Address line 2
+								input(type='text')
+							label.inpt
+								span.inpt-title Zip Code
+								input(type='text')
+							label.inpt
+								span.inpt-title Zip Code
+								input(type='text')
+						g-select(gtitle='Partner' :items='[{"id":1,"value":"Speed 1x", selected: true},{"id":2,"value":"Population"}]')
+						.row.row-gap
+							label.checkbox
+								input(type='checkbox')
+								span.checkbox-bg
+									span.checkbox-body
+								span Break-Even Analysis Report

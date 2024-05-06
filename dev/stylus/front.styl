@@ -1,0 +1,39 @@
+.block
+	padding: 20px
+	//box-shadow 0 0 10px RGBA(0,0,0,.12)
+	//background-color RGB($white)
+	background-color RGB(var(--white))
+	border-radius 10px
+	margin-top: 20px
+	&:first-child
+		margin-top: 0
+	&-right
+		margin-left auto
+	&-table
+		w(100%)
+		overflow-x: scroll
+	&-head
+		padding: 20px
+		&-row
+			df({
+			df:'.block-head-row',
+			ali:center
+		})
+		column-gap 20px
+		.select
+			w 260px
+&-header
+	df({
+		df:'.block-header'
+	})
+	&_actions
+		margin-left: auto
+		column-gap 20px
+&-title
+	font 14px $f_bold
+	text-transform: uppercase
+.rm
+	&-mr
+		margin: 0
+	&-bdrs
+		border-radius: 0

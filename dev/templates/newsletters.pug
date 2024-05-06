@@ -1,0 +1,52 @@
+extends template/main
+append vars
+	-
+		page_title = 'Reports'
+block aside
+	include aside
+	include asides/aside-reports
+block content
+	main.main.-full#app
+		include template/header
+		.workspace.block
+			section.page-block.-block-active
+				.block-header.profile-row
+					h2.block-title Newsletters
+					.block-header_actions.gap-withoutflex
+						a.btn(href="add-newsletter.html") Add newsletter
+			.block.rm-mr.rm-bdrs
+				.block-body
+					.block-table
+						table.table._fill
+							thead.table-head
+								tr
+									th
+										.table-th
+											span Subject
+									th
+										.table-th
+											span Status
+									th
+										.table-th
+											span Activity
+							tbody
+								tr.table-row
+								-for (let i = 0; i < 3; i++)
+									tr.table-row
+										td
+											.table-td
+												span Test newsletter
+										td
+											.table-td-badge.-yellow
+												span Draft
+										td
+											.table-td.table-actions
+												button.table-btn
+													svg.icon
+														use(xlink:href='/img/sprite.svg#edit')
+												button.table-btn
+													svg.icon
+														use(xlink:href='/img/sprite.svg#copy')
+												button.table-btn
+													svg.icon
+														use(xlink:href='/img/sprite.svg#delete')

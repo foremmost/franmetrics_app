@@ -1,0 +1,8 @@
+section.block
+	.block-header.block-header-table
+		h2.block-title Calculation Type
+		.block-header_actions.gap-withoutflex.pagination
+			button.btn.black
+				span Save
+	.block-body
+		g-select(gtitle='Select Default Calculation Type' :items='[{"id":1,"value":"Quick Books"},{"id":2,"value":"Population"}]' @select-change="testChange")

@@ -1,0 +1,26 @@
+extends template/main
+append vars
+	-
+		page_title = 'Import data'
+block aside
+	include aside
+	include asides/aside-network
+block content
+	main.main.-full-withpad.profile#app
+		include template/header
+		.workspace.block
+			section.block.profile-block
+				.block-header.profile-row
+					h2.block-title Import data
+					.block-header-right
+						a.btn.btn-empty Get Import Data example
+			section.block
+				.row.gap
+					g-select(:items='[{"id":1,"value":"Dec 2023"},{"id":2,"value":"Jan 2023"}]')
+					g-select(gtitle="Date" :items='[{"id":1,"value":"Jan 2023"},{"id":2,"value":"Population"}]')
+					label.btn-file
+						input(type='file')
+						span Select a file
+						strong File is not selected
+					button.btn
+						span Upload

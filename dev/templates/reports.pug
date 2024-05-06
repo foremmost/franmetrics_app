@@ -1,0 +1,75 @@
+extends template/main
+append vars
+	-
+		page_title = 'Reports'
+block aside
+	include aside
+	include asides/aside-reports
+block content
+	main.main.-full#app
+		include template/header
+		.workspace.block
+			section.block
+				.block-header.block-header-table
+					h2.block-title Internal Report for us
+				.block-body
+					.block-table
+						table.table._fill
+							thead.table-head
+								tr
+									th
+										.table-th
+											span Organization
+									th
+										.table-th
+											span Active units
+									th
+										.table-th
+											span List of features turned on
+									th
+										.table-th
+											span Monthly reporting
+									th
+										.table-th
+											span Weekly reporting
+									th
+										.table-th
+											span Evaluations
+									th
+										.table-th
+											span User list
+									th
+										.table-th
+											span Partner Units
+							tbody
+								tr.table-row
+								-for (let i = 0; i < 8; i++)
+									tr.table-row
+										td
+											.table-td
+												a.btn
+													span Westside Pizza
+										td
+											.table-td
+												span 42
+										td
+											.table-td
+												span
+													| QuickBooks API integration
+													| CSV import
+													| Google Reviews
+										td
+											.table-td
+												span On
+										td
+											.table-td
+												span Off
+										td
+											.table-td
+												span On
+										td
+											.table-td
+												span 52
+										td
+											.table-td
+												span 0

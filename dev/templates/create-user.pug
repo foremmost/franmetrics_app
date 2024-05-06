@@ -1,0 +1,53 @@
+extends template/main
+append vars
+	-
+		page_title = 'Главная'
+block aside
+	include aside
+	include asides/aside-uuo
+block content
+	main.main.-full-withpad.profile
+		include template/header
+		section.block.profile-block.workspace
+			.page-block(data-block='main').-block-active
+				form.block-header.profile-row
+					h2.block-title Create new User
+					.block-header_actions.gap-withoutflex
+						a.btn-link Cancel
+						a.btn.black Save
+				.profile-row
+					.profile-form
+						label.inpt
+							span.inpt-title First Name
+							input(type='text' value="Darell")
+						label.inpt
+							span.inpt-title Last Name
+							input(type='text' value='Steward')
+						label.inpt
+							span.inpt-title E-mail
+							input(type='email' value="test@mail.com")
+						label.inpt
+							span.inpt-title Password ( if you left empty the password wil be "#FranPass2!")
+							input(type='password')
+						g-select(gtitle='Organization' :items='[{"id":1,"value":"Speed 1x", selected: true},{"id":2,"value":"Population"}]')
+						.row.row-gap
+							label.checkbox
+								input(type='checkbox')
+								span.checkbox-bg
+									span.checkbox-body
+								span Is active
+							label.checkbox
+								input(type='checkbox')
+								span.checkbox-bg
+									span.checkbox-body
+								span New user notification
+							label.checkbox
+								input(type='checkbox')
+								span.checkbox-bg
+									span.checkbox-body
+								span Report notification
+							label.checkbox
+								input(type='checkbox')
+								span.checkbox-bg
+									span.checkbox-body
+								span Email NOT Verified

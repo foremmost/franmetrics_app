@@ -1,0 +1,393 @@
+extends template/main
+append vars
+	-
+		page_title = 'Consolidated Monthly Scorecard'
+block aside
+	include aside
+	include asides/aside-network
+block content
+	main.main.-full-withpad#app
+		include template/header
+		.workspace.block
+			section.block.bg-white.block-nopad
+				.block-accordeon.-opened
+					.block-accordeon-header
+						.block-accordeon-header_item
+							h2.block-title Show units with the following attributes:
+						button.btn-toggle.-opened
+							svg.icon
+								use(xlink:href="/img/sprite.svg#select")
+					.block-accordeon-body
+						.row.gap
+							g-select(gtitle="Population" :items='[{"id":1,"value":"Food Sales"},{"id":2,"value":"Population"}]' @select-change="testChange")
+							g-select(gtitle="Location" :items='[{"id":1,"value":"Food Sales"},{"id":2,"value":"Population"}]' @select-change="testChange")
+							g-select(gtitle="Ownership Type" :items='[{"id":1,"value":"Food Sales"},{"id":2,"value":"Population"}]' @select-change="testChange")
+				.block-accordeon
+					.block-accordeon-header
+						.block-accordeon-header_item
+							h2.block-title Filter based on opening and closing dates:
+						button.btn-toggle
+							svg.icon
+								use(xlink:href="/img/sprite.svg#select")
+					.block-accordeon-body
+						.row.gap
+							g-select(gtitle="Include before" :items='[{"id":1,"value":"Food Sales"},{"id":2,"value":"Population"}]' )
+							g-select(gtitle="Include after" :items='[{"id":1,"value":"Food Sales"},{"id":2,"value":"Population"}]')
+							g-select(gtitle="Exclude before" :items='[{"id":1,"value":"Food Sales"},{"id":2,"value":"Population"}]')
+							g-select(gtitle="Exclude after" :items='[{"id":1,"value":"Food Sales"},{"id":2,"value":"Population"}]')
+							label.checkbox
+								input(type='checkbox')
+								span.checkbox-bg
+									span.checkbox-body
+								span Exclude all closed units
+			section.block
+				.row.gap
+					g-select(gtitle="Showing" :items='[{"id":1,"value":"Food Sales"},{"id":2,"value":"Population"}]' )
+					g-select(gtitle="Start" :items='[{"id":1,"value":"Food Sales"},{"id":2,"value":"Population"}]')
+					g-select(gtitle="End" :items='[{"id":1,"value":"Food Sales"},{"id":2,"value":"Population"}]')
+					g-select(gtitle="Against" :items='[{"id":1,"value":"Food Sales"},{"id":2,"value":"Population"}]')
+					label.checkbox
+						input(type='checkbox')
+						span.checkbox-bg
+							span.checkbox-body
+						span Include Partial Months
+					.btn.black
+						| Go
+					.btn.btn-empty
+						| Reset
+			section.block
+				.block-header.block-header-table
+					h2.block-title
+						| Trend over time
+					.block-header_actions.gap-withoutflex
+						.eval-badge.ave
+							span Ave Ticket
+						.eval-badge.sales
+							span Food Sales
+				.block-body
+					+img('graph.png')
+			section.block
+				.block-header.block-header-table
+					h2.block-title
+						| Trend details
+					.block-header_actions.gap-withoutflex
+						button.btn.btn-with-img.black(data-click="front:showPopup")
+							svg.icon
+								use(xlink:href="/img/sprite.svg#full")
+							span Full Screen
+				.block-body
+					.block-table
+						table.table
+							thead.table-head.table-head_big
+								tr
+									th
+									th(colspan=7)._fill
+										.table-th.center
+											span Profitability
+									th(colspan=6)._fill
+										.table-th.center
+											span Feedback
+									th(colspan=4)._fill
+										.table-th.center
+											span Efficiency
+								tr
+									th
+									th._fill
+										span.table-th_second Food Sales
+									th
+										span.table-th_second Food Cost
+									th
+										span.table-th_second Labor Cost
+									th
+										span.table-th_second Adv Cost
+									th
+										span.table-th_second Operational Profit
+									th
+										span.table-th_second Operation Profit %
+									th
+										span.table-th_second Ave Ticket
+									th
+										span.table-th_second Google Review Customer Time
+									th
+										span.table-th_second Google Review Response %
+									th
+										span.table-th_second Google Review Score
+									th
+										span.table-th_second Service Score
+									th
+										span.table-th_second Evaluation Score
+									th
+										span.table-th_second Mystery Shop Score
+									th
+										span.table-th_second Delivery On Time %
+									th
+										span.table-th_second Delivery Time
+									th
+										span.table-th_second Make Time
+									th
+										span.table-th_second OTD
+								tr
+									th
+										span.table-th_second Total
+									th._fill
+										span.table-th_second  $ 491,227
+									th
+										span.table-th_second 34.8%
+									th
+										span.table-th_second 26.2%
+									th
+										span.table-th_second 5.6%
+									th
+										span.table-th_second &mdash;
+									th
+										span.table-th_second -5.5%
+									th
+										span.table-th_second $ 28 Average
+									th
+										span.table-th_second 11.1 Average
+									th
+										span.table-th_second 81.1%
+									th
+										span.table-th_second 4.57
+									th
+										span.table-th_second 92.9 Average
+									th
+										span.table-th_second 94.8 Average
+									th
+										span.table-th_second 91.0 Average
+									th
+										span.table-th_second 0.0% Average
+									th
+										span.table-th_second &mdash; Average
+									th
+										span.table-th_second 9.8 Average
+									th
+										span.table-th_second 20.6 Average
+
+							tbody
+								tr.table-full-row
+									td(colspan="18")._fill
+										.table-td.full
+											| 2023
+								-for(let i=0;i<10;i++)
+									tr.table-row
+										td
+											.table-td
+												span Jan 2023
+										td._fill
+											.table-td
+												.table-td-badge.-success
+													span Positive
+												span $ 38.383
+										td
+											.table-td
+												span 37.8%
+										td
+											.table-td
+												span 24.9%
+										td
+											.table-td
+												span 10.1%
+										td
+											.table-td
+												span $-5,132
+										td
+											.table-td
+												span -13.4%
+										td
+											.table-td
+												span $28
+										td._fill
+											.table-td
+												span 16.0
+										td
+											.table-td
+												span 100.0%
+										td
+											.table-td
+												span 5.00
+										td
+											.table-td
+												span 93.5
+										td
+											.table-td
+												span 94.8
+										td
+											.table-td
+												span 92.2
+										td
+											.table-td
+												span 0.0%
+										td
+											.table-td
+												span &mdash;
+										td
+											.table-td
+												span 9.0
+										td
+											.table-td
+												span 20.0
+			section.popup
+				button.popup-close(data-click="front:closePopup")
+					svg.icon
+						use(xlink:href="/img/sprite.svg#close")
+				.popup-body
+					.block-header.block-header-table
+						h2.block-title
+							| Trend details
+						.block-header_actions.gap-withoutflex
+							button.btn.btn-with-img.black
+								svg.icon
+									use(xlink:href="/img/sprite.svg#full")
+								span Small Screen
+					.block-body
+					.block-table
+						table.table
+							thead.table-head.table-head_big
+								tr
+									th
+									th(colspan=7)._fill
+										.table-th.center
+											span Profitability
+									th(colspan=6)._fill
+										.table-th.center
+											span Feedback
+									th(colspan=4)._fill
+										.table-th.center
+											span Efficiency
+								tr
+									th
+									th._fill
+										span.table-th_second Food Sales
+									th
+										span.table-th_second Food Cost
+									th
+										span.table-th_second Labor Cost
+									th
+										span.table-th_second Adv Cost
+									th
+										span.table-th_second Operational Profit
+									th
+										span.table-th_second Operation Profit %
+									th
+										span.table-th_second Ave Ticket
+									th
+										span.table-th_second Google Review Customer Time
+									th
+										span.table-th_second Google Review Response %
+									th
+										span.table-th_second Google Review Score
+									th
+										span.table-th_second Service Score
+									th
+										span.table-th_second Evaluation Score
+									th
+										span.table-th_second Mystery Shop Score
+									th
+										span.table-th_second Delivery On Time %
+									th
+										span.table-th_second Delivery Time
+									th
+										span.table-th_second Make Time
+									th
+										span.table-th_second OTD
+								tr
+									th
+										span.table-th_second Total
+									th._fill
+										span.table-th_second  $ 491,227
+									th
+										span.table-th_second 34.8%
+									th
+										span.table-th_second 26.2%
+									th
+										span.table-th_second 5.6%
+									th
+										span.table-th_second &mdash;
+									th
+										span.table-th_second -5.5%
+									th
+										span.table-th_second $ 28 Average
+									th
+										span.table-th_second 11.1 Average
+									th
+										span.table-th_second 81.1%
+									th
+										span.table-th_second 4.57
+									th
+										span.table-th_second 92.9 Average
+									th
+										span.table-th_second 94.8 Average
+									th
+										span.table-th_second 91.0 Average
+									th
+										span.table-th_second 0.0% Average
+									th
+										span.table-th_second &mdash; Average
+									th
+										span.table-th_second 9.8 Average
+									th
+										span.table-th_second 20.6 Average
+							tbody
+								tr.table-full-row
+									td(colspan="18")._fill
+										.table-td.full
+											| 2023
+								-for(let i=0;i<10;i++)
+									tr.table-row
+										td
+											.table-td
+												span Jan 2023
+										td._fill
+											.table-td
+												.table-td-badge.-success
+													span Positive
+												span $ 38.383
+										td
+											.table-td
+												span 37.8%
+										td
+											.table-td
+												span 24.9%
+										td
+											.table-td
+												span 10.1%
+										td
+											.table-td
+												span $-5,132
+										td
+											.table-td
+												span -13.4%
+										td
+											.table-td
+												span $28
+										td._fill
+											.table-td
+												span 16.0
+										td
+											.table-td
+												span 100.0%
+										td
+											.table-td
+												span 5.00
+										td
+											.table-td
+												span 93.5
+										td
+											.table-td
+												span 94.8
+										td
+											.table-td
+												span 92.2
+										td
+											.table-td
+												span 0.0%
+										td
+											.table-td
+												span &mdash;
+										td
+											.table-td
+												span 9.0
+										td
+											.table-td
+												span 20.0

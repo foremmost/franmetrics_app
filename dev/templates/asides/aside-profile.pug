@@ -1,0 +1,40 @@
+include ../../../../../core/mixins/mixins
+.aside-inner.aside#inner-aside.-open
+	.aside-header
+		.aside-row
+			.aside-logo
+			.aside-action
+				button.btn-circle.btn-close(data-click="front:closeMenu")
+					svg.icon
+						use(xlink:href="/img/sprite.svg#close")
+	.aside-section
+		h5.aside-title Nested items
+		.aside-section_body
+			ul.aside-items
+				li.aside-item.-selected
+					span.aside-item_tex
+						| User Profile
+				li.aside-inner-item.-active
+					.aside-inner-item_header
+						a.aside-item_tex(href='#')(data-click='front:chooseBlock' data-target-block='main')
+							| User Profile
+				li.aside-inner-item
+					.aside-inner-item_header
+						a.aside-item_tex(href='#')(data-click='front:chooseBlock' data-target-block='password')
+							| Update password
+				li.aside-inner-item
+					.aside-inner-item_header
+						a.aside-item_tex(href='#')(data-click='front:chooseBlock' data-target-block='units')
+							| Units
+				li.aside-inner-item
+					.aside-inner-item_header
+						a.aside-item_tex(href='#')(data-click='front:chooseBlock' data-target-block='organization')
+							| Organizations
+				li.aside-inner-item
+					.aside-inner-item_header
+						a.aside-item_tex(href='#')(data-click='front:chooseBlock' data-target-block='trusted')
+							| Trusted devices
+				li.aside-inner-item
+					.aside-inner-item_header
+						a.aside-item_tex(href='#')(data-click='front:chooseBlock' data-target-block='attempt')
+							| Log in Attempts

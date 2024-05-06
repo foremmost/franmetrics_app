@@ -1,0 +1,51 @@
+.aside-inner.aside#inner-aside.-open
+	.aside-header
+		.aside-row
+			.aside-logo
+			.aside-action
+				button.btn-circle.btn-close(data-click="front:closeMenu")
+					svg.icon
+						use(xlink:href="/img/sprite.svg#close")
+	.aside-section
+		h5.aside-title Nested items
+		.aside-section_body
+			ul.aside-items
+				li.aside-item.-selected
+					a(href="#")
+						svg.aside-item_img.icon
+							use(xlink:href="/img/sprite.svg#users")
+					span.aside-item_tex
+						| User / Unit / Orgs
+			ul.aside-inner-items
+				li.aside-inner-item
+					.aside-inner-item_header
+						span.aside-item_tex
+							| Users
+						svg.aside-item_img.icon
+							use(xlink:href="/img/sprite.svg#select")
+					ul.aside-inner-item-list
+						li.aside-inner-item-list_item
+							a(href='/users.html') List of users
+						li.aside-inner-item-list_item
+							a(href='/create-user.html') Create user
+				li.aside-inner-item
+					.aside-inner-item_header
+						span Organizations
+						svg.aside-item_img.icon
+							use(xlink:href="/img/sprite.svg#select")
+					ul.aside-inner-item-list
+						li.aside-inner-item-list_item
+							a(href='/organizations.html') List of organizations
+						li.aside-inner-item-list_item
+							a(href='/add-organization.html') Create organization
+				li.aside-inner-item
+					.aside-inner-item_header
+						span.aside-item_tex
+							| Units
+						svg.aside-item_img.icon
+							use(xlink:href="/img/sprite.svg#select")
+					ul.aside-inner-item-list
+						li.aside-inner-item-list_item
+							a(href='/units.html') List of units
+						li.aside-inner-item-list_item
+							a(href='/add-unit.html') Create unit

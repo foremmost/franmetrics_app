@@ -1,0 +1,225 @@
+extends template/main
+append vars
+	-
+		page_title = 'Evaluation'
+block aside
+	include aside
+	include asides/aside-evaluation
+block content
+	main.main.-full-withpad
+		include template/header
+		.workspace.block
+			section.block
+				.row.block-head-row
+					.block-left
+						.block-head-row
+							a.btn(href='/new-evaluation.html')
+								span New Evaluation
+					.block-right
+						.block-head-row
+							button.btn.btn-empty
+								| Quick Actions
+							button.btn.btn-empty.btn-with-img
+								svg.icon
+									use(xlink:href="/img/sprite.svg#filter")
+								| Filter
+							button.btn.black
+								| Go
+							button.btn.btn-empty
+								| Reset
+			section.block
+				.block-header.block-header-table
+					h2.block-title
+						| Full westside pizza#[br]
+						| Evaluation (UPDATE 5-01-23)
+					.block-header_actions.gap-withoutflex
+						.eval-badge.red
+							span Badly
+						.eval-badge.orange
+							span Average
+						.eval-badge.green
+							span Greate
+				.eval-graph
+					.eval-graph-header
+						.eval-graph-tr
+							.eval-graph-th
+								| 0%
+							.eval-graph-th
+								| 25%
+							.eval-graph-th
+								| 50%
+							.eval-graph-th
+								| 75%
+							.eval-graph-th
+								| 100%
+					.eval-graph-body
+						.eval-line
+							h6.eval-line_title.-first Evaluation
+							.eval-line_cont
+								.eval-line_space(style='max-width:81%').green
+								.eval-line_digit 81%
+							button.eval-btn
+								span Hide Sub-Categories
+							.eval-sub-categories.-show
+								.eval-hor
+									.eval-hor_digit 70%
+									.eval-hor-space_cont
+										.eval-hor-space
+											.eval-hor-space_fill(style='height:70%')
+									.eval-hor_title
+										span Outside
+								.eval-hor
+									.eval-hor_digit 50%
+									.eval-hor-space_cont
+										.eval-hor-space
+											.eval-hor-space_fill(style='height:50%')
+									.eval-hor_title
+										span Customer Area
+								.eval-hor
+									.eval-hor_digit 30%
+									.eval-hor-space_cont
+										.eval-hor-space
+											.eval-hor-space_fill(style='height:30%')
+									.eval-hor_title
+										span Food Prep Area
+								.eval-hor
+									.eval-hor_digit 24%
+									.eval-hor-space_cont
+										.eval-hor-space
+											.eval-hor-space_fill(style='height:24%')
+									.eval-hor_title
+										span Food Safety
+						.eval-line
+							h6.eval-line_title Cam
+							.eval-line_cont
+								.eval-line_space(style='max-width:63%').orange
+								.eval-line_digit 63%
+							button.eval-btn
+								span Show Sub-Categories
+							.eval-sub-categories
+								.eval-hor
+									.eval-hor_digit 70%
+									.eval-hor-space_cont
+										.eval-hor-space
+											.eval-hor-space_fill(style='height:70%')
+									.eval-hor_title
+										span Outside
+								.eval-hor
+									.eval-hor_digit 50%
+									.eval-hor-space_cont
+										.eval-hor-space
+											.eval-hor-space_fill(style='height:50%')
+									.eval-hor_title
+										span Customer Area
+								.eval-hor
+									.eval-hor_digit 30%
+									.eval-hor-space_cont
+										.eval-hor-space
+											.eval-hor-space_fill(style='height:30%')
+									.eval-hor_title
+										span Food Prep Area
+								.eval-hor
+									.eval-hor_digit 24%
+									.eval-hor-space_cont
+										.eval-hor-space
+											.eval-hor-space_fill(style='height:24%')
+									.eval-hor_title
+										span Food Safety
+						.eval-line
+							h6.eval-line_title Service
+							.eval-line_cont
+								.eval-line_space(style='max-width:47%').orange
+								.eval-line_digit 47%
+						.eval-line
+							h6.eval-line_title Quality
+							.eval-line_cont
+								.eval-line_space(style='max-width:76%').green
+								.eval-line_digit 76%
+						.eval-line
+							h6.eval-line_title Food Safety
+							.eval-line_cont
+								.eval-line_space(style='max-width:100%').green
+								.eval-line_digit 100%
+						.eval-line
+							h6.eval-line_title Atmosphere
+							.eval-line_cont
+								.eval-line_space(style='max-width:47%').orange
+								.eval-line_digit 47%
+						.eval-line
+							h6.eval-line_title Operations
+							.eval-line_cont
+								.eval-line_space(style='max-width:52%').orange
+								.eval-line_digit 52%
+						.eval-line
+							h6.eval-line_title Compilance
+							.eval-line_cont
+								.eval-line_space(style='max-width:21%').red
+								.eval-line_digit 21%
+			section.block
+				.block-body
+					.block-table
+						table.table
+							thead.table-head
+								tr
+									th
+										.table-th
+											button.table-sort
+												svg.icon
+													use(xlink:href="/img/sprite.svg#sort")
+											span Date submitted
+									th
+										.table-th
+											button.table-sort
+												svg.icon
+													use(xlink:href="/img/sprite.svg#sort")
+											span Status
+									th
+										.table-th
+											button.table-sort
+												svg.icon
+													use(xlink:href="/img/sprite.svg#sort")
+											span Score
+									th
+										.table-th
+											button.table-sort
+												svg.icon
+													use(xlink:href="/img/sprite.svg#sort")
+											span Unit
+									th
+										.table-th
+											button.table-sort
+												svg.icon
+													use(xlink:href="/img/sprite.svg#sort")
+											span Actions
+							tbody
+								-for (let i = 0; i < 10; i++)
+									tr.table-row
+										td
+											.table-td
+												span 10/19/2023 01:05 am
+										td
+											.table-td
+												span PASS
+										td
+											.table-td
+												span 88.52%
+										td
+											.table-td
+												span Unit 38 - ANDERSON
+										td
+											.table-td.table-actions
+												button.table-btn
+													svg.icon
+														use(xlink:href="/img/sprite.svg#show")
+												button.table-btn
+													svg.icon
+														use(xlink:href="/img/sprite.svg#download")
+												button.table-btn
+													svg.icon
+														use(xlink:href="/img/sprite.svg#approve")
+												button.table-btn
+													svg.icon
+														use(xlink:href="/img/sprite.svg#edit")
+			section.actions
+				a(href='#').btn.black Download
+				span.actions-text .xlsx

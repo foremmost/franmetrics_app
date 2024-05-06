@@ -1,0 +1,46 @@
+section.block
+	.block-header.block-header-table
+		h2.block-title Performance KPI Settings
+		.block-header_actions.gap-withoutflex.pagination
+			button.btn.black
+				span Save
+	.block-body
+		.profile-row
+			h2.block-title Performance By KPI Settings
+			.profile-form
+				.row.gap
+					label.checkbox
+						input(type='checkbox')
+						span.checkbox-bg
+						span.checkbox-body Share with basic users who have access to Global Reports
+					label.checkbox
+						input(type='checkbox')
+						span.checkbox-bg
+						span.checkbox-body Share with all basic users
+		.profile-row
+			h2.block-title Top Performers Settings
+			.profile-form
+				.row.gap
+					label.checkbox
+						input(type='checkbox')
+						span.checkbox-bg
+						span.checkbox-body Share with basic users
+					label.checkbox
+						input(type='checkbox')
+						span.checkbox-bg
+						span.checkbox-body Segment filters
+					label.checkbox
+						input(type='checkbox')
+						span.checkbox-bg
+						span.checkbox-body Date open/closed filter
+			.profile-form
+				g-select(gtitle='Rank BY' :items='[{"id":1,"value":"Food Sales"},{"id":2,"value":"Population"}]' @select-change="testChange")
+		.profile-row
+			h2.block-title KPI Results
+			.profile-form
+				.row.gap
+					g-select(gtitle='Only show Units with' :items='[{"id":1,"value":"Food Sales"},{"id":2,"value":"Population"}]' @select-change="testChange")
+					g-select(gtitle='Where' :items='[{"id":1,"value":"The top ___Most Favorable"},{"id":2,"value":"Population"}]' @select-change="testChange")
+					label.inpt
+						span.inpt-title Value
+						input(type='text' value="10")
