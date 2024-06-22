@@ -65,6 +65,9 @@ class _G_Control{
 	dragStartHandler(e){
 		return prepareHandler(e,'dragStart');
 	}
+	dragHandler(e){
+		return prepareHandler(e,'drag');
+	}
 	dragOverHandler(e){
 		return prepareHandler(e,'dragOver');
 	}
@@ -83,6 +86,15 @@ class _G_Control{
 	leaveHandler(e){
 		return prepareHandler(e,'leave');
 	}
+	mouseMoveHandler(e){
+		return prepareHandler(e,'mousemove');
+	}
+	mouseDownHandler(e){
+		return prepareHandler(e,'mousedown');
+	}
+	mouseUpHandler(e){
+		return prepareHandler(e,'mouseup');
+	}
 	handle(){
 		const _  = this;
 		_.container.addEventListener('click', _.clickHandler);
@@ -97,11 +109,15 @@ class _G_Control{
 		_.container.addEventListener('mouseout',_.outHandler);
 		_.container.addEventListener('mouseleave',_.leaveHandler);
 		_.container.addEventListener('dragstart',_.dragStartHandler);
+		_.container.addEventListener('drag',_.dragHandler);
 		_.container.addEventListener('dragenter',_.dragEnterHandler);
 		_.container.addEventListener('dragleave',_.dragLeaveHandler);
 		_.container.addEventListener('dragover',_.dragOverHandler);
 		_.container.addEventListener('drop',_.dropHandler);
 		_.container.addEventListener('scroll',_.scrollHandler);
+		_.container.addEventListener('mousemove',_.mouseMoveHandler);
+		_.container.addEventListener('mousedown',_.mouseDownHandler);
+		_.container.addEventListener('mouseup',_.mouseUpHandler);
 	}
 }
 

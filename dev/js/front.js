@@ -12,10 +12,57 @@ class Front extends G_G{
     G_Bus.on(_, [
       'toggleMenu','openMenu','closeMenu',
       'chooseBlock','showPopup','closePopup',
-      'changeTheme'
+      'changeTheme',
+	    'answerStart','answerMove','answerEnd',
+	    'mobileToUp',
     ]);
+	  _.finishMove = true;
     _.init();
   }
+
+	answerStart({item,event}){
+		const _ = this;
+		_.start = event.clientX;
+		_.moveOffset = 0;
+		let style = item.getAttribute('style');
+		if (style && style.includes('translateX(')) {
+			_.moveOffset = parseInt(style.split('(')[1].replace('px);',''));
+		}
+		_.dragButton = item;
+		_.finishMove = false;
+	}
+	answerMove({event}){
+		const _ = this;
+		if (_.finishMove) return;
+		let distance = event.clientX - _.start;
+		if (distance > 0 && distance + _.moveOffset > 61) {
+			_.finishMove = true;
+			return;
+		}
+		if (distance < 0 && distance + _.moveOffset < -61) {
+			_.finishMove = true;
+			_.negativeAnswer({item:_.dragButton});
+			return;
+		}
+		_.dragButton.style = `transform:translateX(${distance + _.moveOffset}px)`;
+	}
+	answerEnd(){
+		const _ = this;
+		if (!_.finishMove) {
+			_.finishMove = true;
+			_.dragButton.removeAttribute('style');
+		}
+	}
+	negativeAnswer({item}) {
+		const _ = this;
+		console.log(item)
+	}
+	mobileToUp() {
+		const _ = this;
+		_.f('.m-center').scrollTo({top:0,behavior: 'smooth'})
+	}
+
+
   toggleMenu({item}){
     const  _ = this;
     if(!_.asideCont) return void 0;

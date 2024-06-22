@@ -2,6 +2,8 @@
 @import vars
 @import groups
 @import front
+html
+	scroll-behavior smooth
 *,*:before,*:after
 	margin: 0
 	padding: 0
@@ -1350,3 +1352,111 @@ body
 		padding 2px
 		use
 			stroke RGB($black)
+.m
+	&-cont
+		padding-top 54px
+		df({
+			df: '.m-cont'
+			ali: center
+			jus: center
+		})
+	&-inner
+		wh(400px,830px)
+		padding 90px 40px 50px
+		display flex
+		flex-direction column
+		row-gap 20px
+		background-color #F4F4F4
+		background-image url("/img/iPhone.png")
+		background-size 100%
+		background-repeat no-repeat
+	&-row
+		df({
+			df: '.m-row'
+			ali: center
+		})
+	&-block
+		padding 30px 20px
+		border-radius 10px
+		background-color #fff
+		overflow hidden
+	&-checkbox
+		&-block
+			padding 11px 20px
+		&-body
+			display flex
+			flex-direction column
+			row-gap 4px
+			strong
+				font 13px/17px $f_bold
+				color #263238
+			span
+				font-size 12px
+				line-height 15px
+				color #B9B9B9
+	&-splitter
+		wh(1px,18px)
+		margin 0 30px
+		flex-shrink 0
+		background-color #b9b9b9
+	&-search
+		wh(24px)
+		flex-shrink 0
+		svg
+			wh(100%)
+	&-center
+		max-height 511px
+		overflow auto
+	&-controls
+		margin-top auto
+		padding 14px 20px
+		df({
+			df: '.m-controls'
+		})
+		column-gap 20px
+		&-btn
+			wh(44px)
+			border 2px solid #263238
+			border-radius 10px
+			&:last-child:not(:first-child)
+				margin-left auto
+		&-tablet
+			background-color #263238
+		svg
+			wh(24px)
+	&-list
+		display flex
+		flex-direction column
+		border-radius 10px
+		overflow hidden
+	&-item
+		border-top 1px solid #E9EBEC
+		border-bottom 1px solid #E9EBEC
+		position relative
+		display flex
+		justify-content center
+		&:not(:last-child)
+			margin-bottom 10px
+		&-btn
+			wh(calc(100% - 4px),73px)
+			background-color #fff
+			font 13px/17px $f_bold
+			position relative
+			z-index 1
+		&:before,&:after
+			wh(63px,100%)
+			display flex
+			align-items center
+			justify-content center
+			color #fff
+			position absolute
+			top 0
+		&:before
+			content: 'Yes'
+			background-color #37BE55
+			left 0
+		&:after
+			content: 'No'
+			background-color #FF6363
+			right 0
+		

@@ -1,0 +1,42 @@
+extends template/main
+append vars
+	-
+		page_title = 'Mobile'
+block aside
+	include aside
+	include asides/aside-main
+block content
+	main.main.-full-withpad#app
+		include template/header
+		section.block
+			h2.block-title Self Evaluation
+		section.m-cont
+			.m-inner
+				.m-block.m-checkbox-block.m-row
+					label.checkbox
+						input(type='checkbox')
+						span.checkbox-bg
+							span.checkbox-body
+						span.m-checkbox-body
+							strong Not Answered
+							span Click the radio button to switch the property
+					.m-splitter
+					button.m-search
+						svg
+							use(xlink:href="/img/sprite.svg#search")
+				.m-center
+					ul.m-list
+						li.m-item(data-mousemove="front:answerMove")
+							button(data-mousedown="front:answerStart" data-mouseup="front:answerEnd").m-item-btn Parking lot clean?
+						li.m-item(data-mousemove="front:answerMove")
+							button(data-mousedown="front:answerStart" data-mouseup="front:answerEnd").m-item-btn Parking lot clean?
+				.m-block.m-controls
+					button.m-controls-btn.m-controls-info
+						svg
+							use(xlink:href="/img/sprite.svg#info")
+					button.m-controls-btn.m-controls-tablet
+						svg
+							use(xlink:href="/img/sprite.svg#tablet")
+					button(data-click="front:mobileToUp").m-controls-btn.m-controls-up
+						svg
+							use(xlink:href="/img/sprite.svg#arrowUp")
