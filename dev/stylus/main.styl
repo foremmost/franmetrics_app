@@ -643,14 +643,28 @@ body
 					background-color #FFE8E8
 					&:before
 						background-color: #FF6363
-			&.-yellow
+			&.-yellow,&.-green,&.-red
 				&>span
 					padding 2px 10px
 					font-size: 12px
+			&.-yellow
+				&>span
 					color RGB($black)
 					background-color RGB($yellow)
 					&:before
 						background-color RGB($black)
+			&.-green
+				&>span
+					color RGB($white)
+					background-color #37BE55
+					&:before
+						background-color RGB($white)
+			&.-red
+				&>span
+					color RGB($white)
+					background-color #FF6363
+					&:before
+						background-color RGB($white)
 		&-row
 			df({
 				df:'.table-td-row'
@@ -903,6 +917,67 @@ body
 		&_title
 			font 13px/16.54px $f_reg
 
+	&-map
+		wh(100%,200px)
+		margin-top 20px
+		border-radius 10px
+		overflow hidden
+		iframe
+			wh(100%)
+	&-table
+		width 100%
+		background-color RGB($gray)
+		&-cont
+			border 1px solid #E9EBEC
+			border-radius 10px
+			overflow auto
+		&-text
+			font 16px/24px $f_reg
+			color #263238
+		tr
+			&:last-child
+				td
+					border-bottom none
+		.table-th
+			padding 23px 20px
+		.table-td
+			padding 5px 20px
+		.table-td,.table-th
+			max-width initial
+		th,td
+			border-bottom 1px solid #E9EBEC
+	&-image
+		wh(100%)
+		df({
+			df: '.eval-image'
+			ali: center
+			jus: center
+		})
+		background-color rgba(0,0,0,0.5)
+		position fixed
+		top 0
+		left 0
+		z-index 10000
+		&.active
+			.eval-image-inner
+				opacity 1
+				transform scale(1)
+		&-inner
+			wh(600px,500px)
+			position relative
+			opacity 0
+			transform scale(0.7)
+			transition .35s ease
+			image
+				wh(100%)
+				object-fit contain
+		button
+			wh(24px)
+			position absolute
+			top 0
+			right -30px
+			svg
+				wh(100%)
 .credentials
 	&-form
 		.inpt,.textarea,.select
@@ -1362,24 +1437,71 @@ body
 		})
 	&-inner
 		wh(400px,830px)
-		padding 90px 40px 50px
-		display flex
-		flex-direction column
-		row-gap 20px
 		background-color #F4F4F4
 		background-image url("/img/iPhone.png")
 		background-size 100%
 		background-repeat no-repeat
+		position relative
+	&-page
+		height 100%
+		padding 90px 40px 50px
+		display flex
+		flex-direction column
+		row-gap 20px
+	&-additional
+		wh(100%)
+		position absolute
+		left 0
+		top 0
+		opacity 0
+		visibility hidden
+		transition .35s ease
+		&.active
+			visibility visible
+			opacity 1
+		&-inner
+			height calc(100% - 84px)
+			row-gap 50px
+			overflow auto
+			position relative
+		.m-block
+			&:first-child
+				height 598px
+	&-tooltip
+		&-inner
+			display flex
+			flex-direction column
+			align-items center
+			justify-content center
+		&-cursor
+			position absolute
+			top 63%
+			right 16%
 	&-row
 		df({
 			df: '.m-row'
 			ali: center
 		})
 	&-block
-		padding 30px 20px
 		border-radius 10px
 		background-color #fff
 		overflow hidden
+		position relative
+		&-title
+			font 14px/18px $f_bold
+			letter-spacing 0.05em
+			color #263238
+			text-transform uppercase
+			.red
+				color #FF6363
+			.green
+				color #37BE55
+		&-header
+			padding 30px 20px 35px
+			border-bottom 1px solid #E9EBEC
+		&-item
+			padding 30px 20px 18px
+			border-bottom 1px solid #E9EBEC
 	&-checkbox
 		&-block
 			padding 11px 20px
@@ -1406,6 +1528,7 @@ body
 			wh(100%)
 	&-center
 		max-height 511px
+		background-color #FCFCFC
 		overflow auto
 	&-controls
 		margin-top auto
@@ -1424,39 +1547,155 @@ body
 			background-color #263238
 		svg
 			wh(24px)
+		&-button
+			wh(100%,44px)
+			border 2px solid #263238
+			border-radius 10px
+			font 16px/20px $f_bold
+			color #263238
+			&.fill
+				background-color #263238
+				color #fff
 	&-list
+		padding 10px 0
 		display flex
 		flex-direction column
-		border-radius 10px
 		overflow hidden
-	&-item
-		border-top 1px solid #E9EBEC
-		border-bottom 1px solid #E9EBEC
-		position relative
-		display flex
-		justify-content center
-		&:not(:last-child)
-			margin-bottom 10px
-		&-btn
-			wh(calc(100% - 4px),73px)
-			background-color #fff
-			font 13px/17px $f_bold
+		&-item
 			position relative
-			z-index 1
-		&:before,&:after
-			wh(63px,100%)
 			display flex
-			align-items center
 			justify-content center
-			color #fff
+			&:not(:last-child)
+				margin-bottom 10px
+			&-btn
+				wh(calc(100% + 122px),73px)
+				flex-shrink 0
+				border-radius 19px
+				df({
+					df: '.m-item-btn'
+					ali: center
+					jus: space-between
+				})
+				background-color #fff
+				overflow hidden
+				font 13px/17px $f_bold
+				span
+					wh(calc(100% - 126px),100%)
+					padding 0 58px
+					display flex
+					align-items center
+					justify-content center
+					border-top 1px solid #E9EBEC
+					border-bottom 1px solid #E9EBEC
+				&:before,&:after
+					wh(63px,100%)
+					display flex
+					align-items center
+					justify-content center
+					color #fff
+					text-transform uppercase
+				&:before
+					content: 'Yes'
+					background-color #37BE55
+				&:after
+					content: 'No'
+					background-color #FF6363
+	&-form
+		padding 14px 20px
+		display flex
+		flex-direction column
+		row-gap 20px
+		&-block
+			width 100%
+			&-noty
+				margin-top 10px
+				font 14px/24px $f_reg
+				&.red
+					color #FF6363
+		&-input
+			padding 10px 14px
+			border-radius 12px
+			border 1px solid #E9EBEC
+			legend
+				font 12px/1 $f_reg
+				color #263238
+			input,textarea
+				width 100%
+				border none
+				font 16px/24px $f_reg
+				color #263238
+			textarea
+				height 260px
+				resize none
+		&-files
+			display flex
+			column-gap 12px
+		&-file
+			wh(62px,50px)
+			df({
+				df: '.m-form-file'
+				ali: center
+				jus: center
+			})
+			border-radius 6px
+			background-color rgba(0,0,0,.2)
+			overflow hidden
+			input
+				display none
+			svg
+				wh(24px)
+			&-button
+				wh(100%)
+				display flex
+				align-items center
+				justify-content center
+				& + svg
+					display none
+				svg
+					position absolute
+				img
+					wh(100%)
+					object-fit cover
+	&-image
+		wh(100%)
+		background-color rgba(0,0,0,0.5)
+		opacity 0
+		transition .35s ease
+		position absolute
+		top 0
+		left 0
+		&.active
+			opacity 1
+		img
+			wh(100%)
+			object-fit contain
+		button
 			position absolute
-			top 0
-		&:before
-			content: 'Yes'
-			background-color #37BE55
-			left 0
-		&:after
-			content: 'No'
-			background-color #FF6363
-			right 0
-		
+			top 20px
+			right 20px
+			z-index 1
+			svg
+				wh(24px)
+	&-dropdown
+		font 13px/17px $f_bold
+		color #263238
+		&.active
+			.m-dropdown-head
+				svg
+					transform rotate(180deg)
+		&-head
+			width 100%
+			df({
+				df: '.m-dropdown-head'
+				ali: center
+				jus: space-between
+			})
+			padding 28px 20px
+			border-bottom 1px solid #E9EBEC
+			svg
+				wh(24px)
+				transition .35s ease
+		&-body
+			height 0
+			overflow hidden
+			transition .35s ease

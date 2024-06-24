@@ -12,31 +12,70 @@ block content
 			h2.block-title Self Evaluation
 		section.m-cont
 			.m-inner
-				.m-block.m-checkbox-block.m-row
-					label.checkbox
-						input(type='checkbox')
-						span.checkbox-bg
-							span.checkbox-body
-						span.m-checkbox-body
-							strong Not Answered
-							span Click the radio button to switch the property
-					.m-splitter
-					button.m-search
-						svg
-							use(xlink:href="/img/sprite.svg#search")
-				.m-center
-					ul.m-list
-						li.m-item(data-mousemove="front:answerMove")
-							button(data-mousedown="front:answerStart" data-mouseup="front:answerEnd").m-item-btn Parking lot clean?
-						li.m-item(data-mousemove="front:answerMove")
-							button(data-mousedown="front:answerStart" data-mouseup="front:answerEnd").m-item-btn Parking lot clean?
-				.m-block.m-controls
-					button.m-controls-btn.m-controls-info
-						svg
-							use(xlink:href="/img/sprite.svg#info")
-					button.m-controls-btn.m-controls-tablet
-						svg
-							use(xlink:href="/img/sprite.svg#tablet")
-					button(data-click="front:mobileToUp").m-controls-btn.m-controls-up
-						svg
-							use(xlink:href="/img/sprite.svg#arrowUp")
+				.m-page
+					.m-block.m-checkbox-block.m-row
+						label.checkbox
+							input(type='checkbox')
+							span.checkbox-bg
+								span.checkbox-body
+							span.m-checkbox-body
+								strong Not Answered
+								span Click the radio button to switch the property
+						.m-splitter
+						button.m-search
+							svg
+								use(xlink:href="/img/sprite.svg#search")
+					.m-block.m-center
+						.m-block-item
+							h4.m-block-title Full Westside Pizza Evaluation (Updated 5-01-23)
+						.m-dropdown
+							button(data-click="front:mobileDropdown").m-dropdown-head
+								span Unit 40 - YAKIMA
+								svg
+									use(xlink:href='/img/sprite.svg#dropdownArrow')
+							.m-dropdown-body
+								.m-block-item
+									h4.m-block-title First Page
+						ul.m-list
+							li.m-list-item(data-mousemove="front:answerMove")
+								button(data-mousedown="front:answerStart" data-mouseup="front:answerEnd").m-list-item-btn
+									span Parking lot clean?
+							li.m-list-item(data-mousemove="front:answerMove")
+								button(data-mousedown="front:answerStart" data-mouseup="front:answerEnd").m-list-item-btn
+									span 2 Liters Are Not Stacked On Top Of Delivery Bags
+					.m-block.m-controls
+						button.m-controls-btn.m-controls-info(data-click="front:showTooltip")
+							svg
+								use(xlink:href="/img/sprite.svg#info")
+						button.m-controls-btn.m-controls-tablet
+							svg
+								use(xlink:href="/img/sprite.svg#tablet")
+						button(data-click="front:mobileToUp").m-controls-btn.m-controls-up
+							svg
+								use(xlink:href="/img/sprite.svg#arrowUp")
+				.m-page.m-tooltip.m-additional
+					.m-block
+						.m-block-header
+							h5.m-block-title Advise
+						.m-additional-inner.m-tooltip-inner
+							h5.m-block-title
+								span Swipe left to
+								br
+								span answer&nbsp;
+								span.red no
+							ul.m-list
+								li.m-list-item(data-mousemove="front:answerMove")
+									button(style="transform:translateX(-72px)").m-list-item-btn
+										span Parking lot clean?
+								li.m-list-item(data-mousemove="front:answerMove")
+									button(style="transform:translateX(72px)").m-list-item-btn
+										span 2 Liters Are Not Stacked On Top Of Delivery Bags
+							h5.m-block-title
+								span Swipe right to
+								br
+								span answer&nbsp;
+								span.green yes
+							.m-tooltip-cursor
+								img(src="/img/tooltipCursor.svg")
+					.m-block.m-controls
+						button.m-controls-button(data-click="front:hideTooltip") Got it

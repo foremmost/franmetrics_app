@@ -1,0 +1,87 @@
+extends template/main
+append vars
+	-
+		page_title = 'Evaluations'
+block aside
+	include aside
+	include asides/aside-evaluation
+block content
+	main.main.-full-withpad#app
+		include template/header
+		section.block
+			.block-header.block-header-table
+				h2.block-title Westside Pizza Evaluation - Unit 61 - WEST HAVEN
+				h5.block-title.block-header-right 12/16/2023 10:11 pm
+		section.eval-map
+			iframe(src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d187.41453971689197!2d-72.93777095750218!3d41.27333399542555!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89e7d924216ccfa1%3A0x903acc8722e44966!2sWest%20Haven%20Pizza%20and%20Deli!5e0!3m2!1sru!2skz!4v1719224491040!5m2!1sru!2skz" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade")
+		section.block
+			.eval-table-cont
+				.status-block.report-block
+					.status-block-header
+						.status-block-header_item.row
+							h5.block-title First page
+							.table-td-badge.-green
+								span 100
+						button.btn-toggle
+							svg.icon
+								use(xlink:href="/img/sprite.svg#select")
+				.status-block.report-block.-opened
+					.status-block-header
+						.status-block-header_item.row
+							h5.block-title Outside
+							.table-td-badge.-yellow
+								span 82.35
+						button.btn-toggle.-opened
+							svg.icon
+								use(xlink:href="/img/sprite.svg#select")
+					.status-block-body
+						table.eval-table
+							thead
+								tr.table-row
+									th
+										.table-th Item
+									th
+										.table-th Result
+									th
+										.table-th Answer
+									th
+										.table-th Images
+									th
+										.table-th Comment
+							tbody
+								tr.table-row
+									td
+										.table-td
+											.eval-table-text Pizza Is Round In Shape With No Gaps Between Slices
+									td
+										.table-td
+											.table-td-badge.-green
+												span Yes
+									td
+										.table-td 1
+									td
+										.table-td
+											.m-form-file
+												button.m-form-file-button(data-click="front:showEvalImage")
+													img(src="/img/eval-img.jpeg")
+													svg
+														use(xlink:href="/img/sprite.svg#view")
+									td
+								tr.table-row
+									td
+										.table-td
+											.eval-table-text Pizza Is Cut All The Way Through The Crust Into 8 Or 12 Even Slices
+									td
+										.table-td
+											.table-td-badge.-red
+												span No
+									td
+										.table-td 1
+									td
+										.table-td
+											.m-form-file
+												button.m-form-file-button(data-click="front:showEvalImage")
+													img(src="/img/eval-img.jpeg")
+													svg
+														use(xlink:href="/img/sprite.svg#view")
+									td

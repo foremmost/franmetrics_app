@@ -15,11 +15,39 @@ class Front extends G_G{
       'changeTheme',
 	    'answerStart','answerMove','answerEnd',
 	    'mobileToUp',
+			'negativeUploadImage','closeNegativeForm','negativeSend',
+	    'showTooltip','hideTooltip','mobileDropdown',
+	    'showMobileImage','closeMobileImage',
+	    'showEvalImage','closeEvalImage',
     ]);
 	  _.finishMove = true;
     _.init();
   }
 
+	showTooltip(){
+		const _ = this;
+		_.f('.m-tooltip').classList.add('active')
+	}
+	hideTooltip(){
+		const _ = this;
+		_.f('.m-tooltip').classList.remove('active')
+	}
+	mobileDropdown({item}){
+		const _ = this;
+		let dropdown = item.parentElement;
+		let body = item.nextElementSibling;
+		if (!dropdown.classList.contains('active')) {
+			let height = 0;
+			for (let i = 0; i < body.children.length; i++) {
+				height += body.children[i].clientHeight + 1;
+			}
+			dropdown.classList.add('active');
+			body.style = `height:${height}px;`
+		} else {
+			body.removeAttribute('style');
+			dropdown.classList.remove('active')
+		}
+	}
 	answerStart({item,event}){
 		const _ = this;
 		_.start = event.clientX;
@@ -35,11 +63,11 @@ class Front extends G_G{
 		const _ = this;
 		if (_.finishMove) return;
 		let distance = event.clientX - _.start;
-		if (distance > 0 && distance + _.moveOffset > 61) {
+		if (distance > 0 && distance + _.moveOffset > 72) {
 			_.finishMove = true;
 			return;
 		}
-		if (distance < 0 && distance + _.moveOffset < -61) {
+		if (distance < 0 && distance + _.moveOffset < -72) {
 			_.finishMove = true;
 			_.negativeAnswer({item:_.dragButton});
 			return;
@@ -55,7 +83,136 @@ class Front extends G_G{
 	}
 	negativeAnswer({item}) {
 		const _ = this;
-		console.log(item)
+		let answerBlock = _.markup(_.negativeAnswerTpl({title:item.textContent}));
+		_.f('.m-inner').append(answerBlock);
+		_.f('.m-negative').classList.add('active')
+	}
+	negativeAnswerTpl(data){
+		const _ = this;
+		let tpl = `
+			<form class="m-page m-additional m-negative" data-submit="${_.componentName}:negativeSend">
+				<div class="m-block">
+					<div class="m-block-header">
+						<h4 class="m-block-title">${data.title}</h4>
+					</div>
+					<div class="m-form m-additional-inner">
+						<div class="m-form-block">
+							<fieldset class="m-form-input m-form-textarea">
+								<legend>Your comment</legend>
+								<textarea name="comment"></textarea>
+							</fieldset>
+							<div class="m-form-block-noty red">*Please, no more than 200 characters</div>
+						</div>
+						<h4 class="m-block-title">photo proof</h4>
+						<div class="m-form-block">
+							<div class="m-form-files">
+								<label class="m-form-file">
+									<svg>
+										<use xlink:href="/img/sprite.svg#plusCircle"></use>
+									</svg>
+									<input type="file" name="file-1" data-change="${_.componentName}:negativeUploadImage">
+								</label>
+								<label class="m-form-file">
+									<svg>
+										<use xlink:href="/img/sprite.svg#plusCircle"></use>
+									</svg>
+									<input type="file" name="file-2" data-change="${_.componentName}:negativeUploadImage">
+								</label>
+								<label class="m-form-file">
+									<svg>
+										<use xlink:href="/img/sprite.svg#plusCircle"></use>
+									</svg>
+									<input type="file" name="file-3" data-change="${_.componentName}:negativeUploadImage">
+								</label>
+								<label class="m-form-file">
+									<svg>
+										<use xlink:href="/img/sprite.svg#plusCircle"></use>
+									</svg>
+									<input type="file" name="file-4" data-change="${_.componentName}:negativeUploadImage">
+								</label>
+							</div>
+							<div class="m-form-block-noty red">*Please, at least 1 image</div>
+						</div>
+					</div>
+				</div>
+				<div class="m-block m-controls">
+					<button class="m-controls-button fill">Done</button>
+					<button type="button" class="m-controls-button" data-click="${_.componentName}:closeNegativeForm">Cancel</button>
+				</div>
+			</form>
+		`;
+		return tpl;
+	}
+	closeNegativeForm({item}){
+		const _ = this;
+		let form = item.closest('.m-negative');
+		form.classList.remove('active');
+		setTimeout(()=>{
+			form.remove();
+		},350)
+	}
+	negativeUploadImage({item}){
+		const _ = this;
+		let file = item.files[0];
+		if (file) {
+			let btn = _.markupElement(`
+				<button class="m-form-file-button" type="button" data-click="${_.componentName}:showMobileImage">
+					<svg><use xlink:href="/img/sprite.svg#view"></use></svg>
+				</button>
+			`)
+			let fr = new FileReader();
+			fr.addEventListener("load", function () {
+				let img = document.createElement('img');
+				img.setAttribute('src', fr.result);
+				btn.append(img);
+				item.parentElement.prepend(btn);
+			}, false);
+			fr.readAsDataURL(file);
+		}
+	}
+	showMobileImage({item}){
+		const _ = this;
+		let image = item.querySelector('IMG');
+		let cont = _.markupElement(`
+			<div class="m-image">
+				<img src="${image.src}">
+				<button data-click="${_.componentName}:closeMobileImage"><svg><use xlink:href="/img/sprite.svg#closeWhite"></use></svg></button>
+			</div>
+		`);
+		item.closest('.m-block').append(cont)
+		cont.classList.add('active');
+	}
+	closeMobileImage({item}){
+		const _ = this;
+		let cont = item.parentElement;
+		cont.classList.remove('active');
+		setTimeout(()=>{cont.remove()},350)
+	}
+	showEvalImage({item}){
+		const _ = this;
+		let image = item.querySelector('IMG');
+		let cont = _.markupElement(`
+			<div class="eval-image">
+				<div class="eval-image-inner">
+					<img src="${image.src}">
+					<button data-click="${_.componentName}:closeEvalImage"><svg><use xlink:href="/img/sprite.svg#closeWhite"></use></svg></button>
+				</div>
+			</div>
+		`);
+		document.body.append(cont)
+		setTimeout(()=>{cont.classList.add('active')})
+	}
+	closeEvalImage({item}){
+		const _ = this;
+		let cont = item.closest('.eval-image');
+		cont.classList.remove('active');
+		setTimeout(()=>{cont.remove()},350)
+	}
+	negativeSend({item,event}){
+		const _ = this;
+		event.preventDefault();
+		let formData = new FormData(item);
+		console.log(formData)
 	}
 	mobileToUp() {
 		const _ = this;
