@@ -179,7 +179,7 @@ class Front extends G_G{
 				<button data-click="${_.componentName}:closeMobileImage"><svg><use xlink:href="/img/sprite.svg#closeWhite"></use></svg></button>
 			</div>
 		`);
-		item.closest('.m-block').append(cont)
+		item.closest('.m-page').append(cont)
 		cont.classList.add('active');
 	}
 	closeMobileImage({item}){
